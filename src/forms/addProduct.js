@@ -7,6 +7,7 @@ export class formulario extends LitElement{
     static properties={
         condition:{},
         product:{},
+        fecha:{}
     }
     constructor(){
         super();
@@ -24,6 +25,7 @@ export class formulario extends LitElement{
             ubicacionEnAlmacen: "",
             notasAdicionales: ""
             }
+        this.fecha=[0,'null']
     }
     render(){
        return html`
@@ -79,7 +81,7 @@ export class formulario extends LitElement{
         </div>
         <div class=" col-md-4">
           <label for="ubicacion-product" class="form-label">Ubicacion del producto</label>
-          <input type="number" name="ubicacionEnAlmacen" class="in form-control" id="ubicacion-product" placeholder="" >
+          <input type="text" name="ubicacionEnAlmacen" class="in form-control" id="ubicacion-product" placeholder="" >
         </div>
         <div class="col-md-4">
           <label for="notes-product">Notas Adicionales</label>
@@ -90,17 +92,20 @@ export class formulario extends LitElement{
         </div>
       </form>
       `;
-
-
     }
     updated(){
         const btnGuardar=this.shadowRoot.querySelector('.guardar')
         btnGuardar.addEventListener('click',(e)=>{
             e.preventDefault();
             const  form= this.shadowRoot.querySelector('.form-data')
+            const  date= this.shadowRoot.querySelectorAll('input[type="date"]')
             const  datos= Object.fromEntries(new FormData(form).entries())
             const  producto= JSON.parse(JSON.stringify(datos));
             const {idMateriaPrima,nombre,descripcion,categoria,proveedor,costoPorunidad,unidadDeMedida,cantidadEnStock,fechaDeAdquisicion,ubicacionEnAlmacen,notasAdicionales}=producto
+            date.forEach(( element,index )=>{
+              this.fecha[index]=element.value
+            })
+            console.log(date)
             this.product.idMateriaPrima=idMateriaPrima
             this.product.nombre=nombre
             this.product.descripcion=descripcion
@@ -109,13 +114,33 @@ export class formulario extends LitElement{
             this.product.costoPorunidad=costoPorunidad
             this.product.unidadDeMedida=unidadDeMedida
             this.product.cantidadEnStock=cantidadEnStock
-            this.product.fechaDeAdquisicion=fechaDeAdquisicion
+            this.product.fechaDeAdquisicion=this.fecha[0]
+            this.product.fechabeVencimiento=this.fecha[1]
             this.product.ubicacionEnAlmacen=ubicacionEnAlmacen
             this.product.notasAdicionales=notasAdicionales
 
             console.log(this.product)
             console.log({idMateriaPrima,nombre,descripcion,categoria,proveedor,costoPorunidad,unidadDeMedida,cantidadEnStock,fechaDeAdquisicion,ubicacionEnAlmacen,notasAdicionales})
+
+          const response=  fetch('https://6658b08f5c36170526498159.mockapi.io/productos', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(this.product)
+          })
+          
+          .then(response => response.json())
+          .then(data => {
+              console.log('Success:', data);
+              alert('Datos guardados exitosamente!');
+          })
+          .catch((error) => {
+              console.error('Error:', error);
+              alert('Hubo un error al guardar los datos.');
+          });
+
         })
     }
-    
+   
 };

@@ -43,8 +43,8 @@ export class Interfaz extends LitElement {
                   
                 </li>
                 <li class="has-subnav">
-                    <a href="#">
-                        <i class="llamar fa fa-globe fa-2x"><img class="img" src="./public/img/product.png" alt=""></i>
+                    <a class="llamar" href="#">
+                        <i class="fa fa-globe fa-2x"><img class="img" src="./public/img/product.png" alt=""></i>
                         <span class="nav-text">
                             Products
                         </span>
@@ -133,7 +133,7 @@ export class Interfaz extends LitElement {
   }
   updated(){
     const btnLlamar=this.shadowRoot.querySelector('.llamar')
-    btnLlamar.addEventListener('click',()=>{
+    btnLlamar.addEventListener('click',(e)=>{
         customElements.define("info-div",formulario)
     })
   }
