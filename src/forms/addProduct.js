@@ -104,12 +104,18 @@ export class formulario extends LitElement{
             this.product.idMateriaPrima=idMateriaPrima
             this.product.nombre=nombre
             this.product.descripcion=descripcion
-            
-        
-            console.log({idMateriaPrima,nombre})
+            this.product.categoria=categoria
+            this.product.proveedor=proveedor
+            this.product.costoPorunidad=costoPorunidad
+            this.product.unidadDeMedida=unidadDeMedida
+            this.product.cantidadEnStock=cantidadEnStock
+            this.product.fechaDeAdquisicion=fechaDeAdquisicion
+            this.product.ubicacionEnAlmacen=ubicacionEnAlmacen
+            this.product.notasAdicionales=notasAdicionales
+
+            console.log(this.product)
+            console.log({idMateriaPrima,nombre,descripcion,categoria,proveedor,costoPorunidad,unidadDeMedida,cantidadEnStock,fechaDeAdquisicion,ubicacionEnAlmacen,notasAdicionales})
         })
     }
     
 };
-
- customElements.define("info-div",formulario)
