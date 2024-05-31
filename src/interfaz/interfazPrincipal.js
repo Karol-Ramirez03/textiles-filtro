@@ -1,5 +1,6 @@
 import { LitElement, html } from 'lit';
 import { formulario } from '../forms/addProduct';
+import { costosproductividad } from '../productividad/formProductividad';
 
 export class Interfaz extends LitElement {
   static properties = {
@@ -34,7 +35,7 @@ export class Interfaz extends LitElement {
           <nav class="main-menu">
             <ul>
                 <li>
-                    <a href="https://jbfarrow.com">
+                    <a class='costo' href="https://jbfarrow.com">
                         <i class=" fa fa-home fa-2x"><img class="img" src="./public/img/home.png" alt=""></i>
                         <span class="nav-text">
                            Home
@@ -136,6 +137,10 @@ export class Interfaz extends LitElement {
     btnLlamar.addEventListener('click',(e)=>{
         customElements.define("info-div",formulario)
     })
+    const btncosto =this.shadowRoot.querySelector('.costo')
+    btncosto.addEventListener('click',(e)=>{
+      customElements.define("info-div", costosproductividad);
+  })
   }
   
 }
