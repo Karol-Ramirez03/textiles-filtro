@@ -16,6 +16,10 @@
     position: relative;
     bottom: 25px;
 }
+.card-costo{
+    margin-left: 10%;
+    width: 300%;
+}
 .img{
     width: 30px;
 }

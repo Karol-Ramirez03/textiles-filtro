@@ -1,6 +1,4 @@
-import { LitElement, html } from "lit";
-
-
+  import { LitElement, html } from "lit";
 
 export class formulario extends LitElement{
     
@@ -88,7 +86,7 @@ export class formulario extends LitElement{
           <textarea class="in form-control" name="notasAdicionales" placeholder="Leave a comment here" id="notes-product" style="height: 100px"></textarea>
         </div>
         <div class="col-12">
-          <button  class="guardar btn btn-primary" type="submit">Submit form</button>
+          <button  class="rosado guardar btn btn-primary" type="submit">Submit form</button>
         </div>
       </form>
       `;
@@ -118,7 +116,7 @@ export class formulario extends LitElement{
             this.product.fechabeVencimiento=this.fecha[1]
             this.product.ubicacionEnAlmacen=ubicacionEnAlmacen
             this.product.notasAdicionales=notasAdicionales
-
+            
             console.log(this.product)
             console.log({idMateriaPrima,nombre,descripcion,categoria,proveedor,costoPorunidad,unidadDeMedida,cantidadEnStock,fechaDeAdquisicion,ubicacionEnAlmacen,notasAdicionales})
 
