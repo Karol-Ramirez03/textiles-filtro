@@ -98,7 +98,7 @@ export class CostosForm extends LitElement {
         costoTotal:sumacostos
     }
     try {
-        const response = await fetch('https://66575a9f9f970b3b36c8f1d8.mockapi.io/costos', {
+        const response = await fetch('https://6659f969de346625136e9f20.mockapi.io//costos', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -119,4 +119,4 @@ export class CostosForm extends LitElement {
   
 }
 
-customElements.define('costos-form', CostosForm);
+

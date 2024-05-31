@@ -1,6 +1,7 @@
 import { LitElement, html } from 'lit';
 import { formulario } from '../forms/addProduct';
 import { costosproductividad } from '../productividad/formProductividad';
+import {CostosForm} from '../costos/formula.js'
 
 export class Interfaz extends LitElement {
   static properties = {
@@ -139,7 +140,7 @@ export class Interfaz extends LitElement {
     })
     const btncosto =this.shadowRoot.querySelector('.costo')
     btncosto.addEventListener('click',(e)=>{
-      customElements.define("info-div", costosproductividad);
+      customElements.define("info-div", CostosForm);
   })
   }
   
