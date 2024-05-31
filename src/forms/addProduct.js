@@ -1,7 +1,5 @@
 import { LitElement, html } from "lit";
 
-
-
 export class formulario extends LitElement{
     
     static properties={
@@ -88,7 +86,7 @@ export class formulario extends LitElement{
           <textarea class="in form-control" name="notasAdicionales" placeholder="Leave a comment here" id="notes-product" style="height: 100px"></textarea>
         </div>
         <div class="col-12">
-          <button  class="guardar btn btn-primary" type="submit">Submit form</button>
+          <button  class="guardar btn btn-primary" type="submit">Agregar</button>
         </div>
       </form>
       `;
