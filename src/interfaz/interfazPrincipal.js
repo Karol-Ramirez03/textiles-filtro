@@ -1,6 +1,8 @@
 import { LitElement, html } from 'lit';
-import { formulario } from '../forms/addProduct';
-import { costosproductividad } from '../productividad/formProductividad';
+import { materiaPrima } from '../forms/addMateriaPrima.js';
+import { costosproductividad } from '../formsProd/formProductividad.js';
+import {CostosForm} from '../formsProd/costosIndi.js'
+import { producto } from '../forms/addProduct.js';
 
 export class Interfaz extends LitElement {
   static properties = {
@@ -35,7 +37,7 @@ export class Interfaz extends LitElement {
           <nav class="main-menu">
             <ul>
                 <li>
-                    <a class='costo' href="https://jbfarrow.com">
+                    <a  href="https://jbfarrow.com">
                         <i class=" fa fa-home fa-2x"><img class="img" src="./public/img/home.png" alt=""></i>
                         <span class="nav-text">
                            Home
@@ -45,14 +47,14 @@ export class Interfaz extends LitElement {
                 </li>
                 <li class="has-subnav">
                     <a class="llamar" href="#">
-                        <i class="fa fa-globe fa-2x"><img class="img" src="./public/img/product.png" alt=""></i>
+                        <i class="fa fa-globe fa-2x"><img class="img" src="./public/img/materiaPrima.png" alt=""></i>
                         <span class="nav-text">
-                            Products
+                            Materia prima
                         </span>
                     </a>
                     
                 </li>
-                <li class="has-subnav">
+                <li class='costo' class="has-subnav">
                     <a href="#">
                        <i class="fa fa-comments fa-2x"><img class="img" src="./public/img/calculate.png" alt=""></i>
                         <span class="nav-text">
@@ -71,10 +73,10 @@ export class Interfaz extends LitElement {
                    
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="fa fa-film fa-2x"></i>
+                    <a class="producto" href="#">
+                        <i class="fa fa-film fa-2x"><img class="img" src="./public/img/product.png" alt=""></i>
                         <span class="nav-text">
-                            Surveying Tutorials
+                            productos
                         </span>
                     </a>
                 </li>
@@ -102,14 +104,6 @@ export class Interfaz extends LitElement {
                         </span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                       <i class="fa fa-info fa-2x"></i>
-                        <span class="nav-text">
-                            Documentation
-                        </span>
-                    </a>
-                </li>
             </ul>
 
             <ul class="logout">
@@ -125,24 +119,38 @@ export class Interfaz extends LitElement {
         </nav>
         </div>
         <div class="info">
-          <info-div>
-          </info-div>
+          
         </div>
       </div>
     `;
     
-  }
+  };
   updated(){
     const btnLlamar=this.shadowRoot.querySelector('.llamar')
     btnLlamar.addEventListener('click',(e)=>{
-        customElements.define("info-div",formulario)
-    })
+      const divInfo=this.shadowRoot.querySelector('.info')
+      divInfo.innerHTML=''
+      const infodiv = document.createElement('info-div')
+      divInfo.appendChild(infodiv)
+        customElements.define("info-div",materiaPrima)
+    });
     const btncosto =this.shadowRoot.querySelector('.costo')
     btncosto.addEventListener('click',(e)=>{
-      customElements.define("info-div", costosproductividad);
-  })
+      const divInfo=this.shadowRoot.querySelector('.info')
+      divInfo.innerHTML=''
+      const costdiv = document.createElement('cost-div')
+      divInfo.appendChild(costdiv);
+      customElements.define("cost-div", CostosForm);
+  });
+  const btnProducto =this.shadowRoot.querySelector('.producto')
+  btnProducto.addEventListener('click',(e)=>{
+    const divInfo=this.shadowRoot.querySelector('.info')
+    divInfo.innerHTML=''
+    const productdiv = document.createElement('product-div')
+    divInfo.appendChild(productdiv);
+    customElements.define("product-div", producto);
+});
   }
-  
 }
 
 

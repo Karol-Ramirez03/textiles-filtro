@@ -4,6 +4,12 @@
     font-size: 18px;
     font-family: "Caveat", cursive;;
 }
+.info-product{
+    width: 30vw;
+}
+.materiales-product{
+    width: 60vw;
+}
 .logoImg{
     width: 250px;
     margin-top: 100px;
@@ -14,6 +20,10 @@
     padding: 0;
     position: relative;
     bottom: 25px;
+}
+.card-costo{
+    margin-left: 10%;
+    width: 300%;
 }
 .img{
     width: 30px;

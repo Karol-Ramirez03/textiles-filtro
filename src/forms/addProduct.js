@@ -1,81 +1,95 @@
 import { LitElement, html } from "lit";
 
-export class formulario extends LitElement{
-    
+
+
+export class producto extends LitElement{
     static properties={
         condition:{},
-        product:{},
-        fecha:{}
+        producto:{},
+        cont:{}
     }
     constructor(){
-        super();
-        this.product={
-            idMateriaPrima: "",
-            nombre: "",
-            descripcion: "",
-            categoria: "",
-            proveedor: "",
-            costoPorunidad: 0,
-            unidadDeMedida: "",
-            cantidadEnStock: 0,
-            fechaDeAdquisicion: "",
-            fechabeVencimiento: "",
-            ubicacionEnAlmacen: "",
-            notasAdicionales: ""
-            }
-        this.fecha=[0,'null']
+        super()
+        this.producto={
+            idProducto:'',
+            nombre:'',
+            horasDeElaboracion:'',
+            personalRequrido:'',
+            materiales:{}
+        }
+        this.cont=0
+        this._bindListeners()
+    }
+    _bindListeners() {
+        this._guardarClickHandler = this._guardarClickHandler.bind(this);
+        this._agregarClickHandler = this._agregarClickHandler.bind(this);
     }
     render(){
-       return html`
+        return html`
         <style>
             @import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
             @import "./style.css";
         </style>
-        <form  class="form-data addProduct row g-3" >
-        <div class="col-md-4">
-          <label for="id-product" class="form-label">ID</label>
-          <input type="text" name="idMateriaPrima" class="in form-control" id="id-product" placeholder="Ingrese el Id" >
+        <form  class="form-data addProduct row g-3 d-flex justify-content-center" >
+        <div class="info-product">
+            <div class="col-md-12">
+                <label for="id" class="form-label">ID</label>
+                <input type="text" name="idProducto" class="in form-control" id="id" placeholder="Ingrese el Id" >
+            </div>
+            <div class="col-md-12">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" name="nombre" class="in form-control" id="name" >
+            </div>
+            <div class="col-md-12">
+                <label for="horas">Horas Requeridas en su elaboracion</label>
+                <input type="number" class="in form-control" name="horasDeElaboracion" placeholder="" id="horas"></input>
+            </div>
+            <div class="col-md-12">
+                <label for="trabajadores" class="form-label">Trabajadores requeridos</label>
+                <input type="number" name="personalRequrido" class="in form-control" id="trabajadores">
+            </div>
+            
         </div>
-        <div class="col-md-4">
-          <label for="name-product" class="form-label">Nombre</label>
-          <input type="text" name="nombre" class="in form-control" id="name-product" >
+        <div class="materiales-product d-flex flex-column">
+            <div class="col-md-4 align-self-center">
+                <label for="cost-product" class="form-label">Materiales</label>
+                <button class="agregar btn btn-primary" type="submit">+</button>
+            </div>
+        </div> 
+        </form>
+        <div class="col-12">
+            <button  class="guardar btn btn-primary" type="submit">Cargar Producto</button>
         </div>
-        <div class="col-md-4">
-          <label for="description-product">Descripcion</label>
-          <textarea class="in form-control" name="descripcion" placeholder="Leave a comment here" id="description-product" style="height: 100px"></textarea>
+
+        
+        `
+    }
+    updated(){
+
+    }
+
+    firstUpdated() {
+        const btnGuardar = this.shadowRoot.querySelector('.guardar');
+        const btnAgregar = this.shadowRoot.querySelector('.agregar');
+
+        btnAgregar.addEventListener('click', this._agregarClickHandler);
+        btnGuardar.addEventListener('click', this._guardarClickHandler);
+    }
+
+    _agregarClickHandler(e) {
+        e.preventDefault();
+        this.cont += 1;
+        const divMateriales = this.shadowRoot.querySelector('.materiales-product');
+        const div = document.createElement('div');
+        div.classList.add('row', 'justify-content-md-center');
+        div.innerHTML = `
+        <div class="col-md-8">
+            <label for="idMateria${this.cont}" class="form-label">Id De la materia prima</label>
+            <input type="text" class="form-control" name="idMateria${this.cont}" id="idMateria${this.cont}">
         </div>
-        <div class="col-md-3">
-          <label for="type-product" class="form-label">Categoria</label>
-          <select class="in form-select" name="categoria" id="type-product">
-            <option selected disabled value="">Elige...</option>
-            <option>Hilos</option>
-            <option>Tela</option>
-            <option>Botones</option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <label for="provider-product" class="form-label">Proveedor</label>
-          <input type="text" name="proveedor" class="in form-control" id="provider-product">
-        </div>
-        <div class="col-md-4">
-          <label for="cost-product" class="form-label">costo c/u</label>
-          <input type="number" name="costoPorunidad" class="in form-control" id="cost-product">
-        </div>
-        <div class="col-md-4">
-          <label for="unidad-product" class="form-label">Unidad de medida</label>
-          <input type="text" name="unidadDeMedida" class="in form-control" id="unidad-product">
-        </div>
-        <div class="col-md-4">
-          <label for="stock-product" class="form-label">Stock</label>
-          <input type="number" name="cantidadEnStock" class="in form-control" id="stock-product">
-        </div>
-        <div class="col-md-3">
-          <label for="fechaDeAdquisicion" class="form-label">Fecha de llegada</label>
-          <input type="date" name="fechaDeAdquisicion" class="in form-control" id="fechaDeAdquisicion" >
-        </div>
-        <div class="col-md-3">
-          <label for="fechaDeAdquisicion" class="form-label">Fecha de vencimiento</label>
-          <input type="date" name="fechaDeAdquisicion" class="in form-control" id="fechaDeAdquisicion" >
+        <div class="col-md-2">
+            <label for="Cantidad${this.cont}" class="form-label">Cantidad</label>
+            <input type="number" class="form-control" name="Cantidad${this.cont}" id="cantidad${this.cont}">
         </div>
         <div class=" col-md-4">
           <label for="ubicacion-product" class="form-label">Ubicacion del producto</label>
@@ -86,46 +100,30 @@ export class formulario extends LitElement{
           <textarea class="in form-control" name="notasAdicionales" placeholder="Leave a comment here" id="notes-product" style="height: 100px"></textarea>
         </div>
         <div class="col-12">
-          <button  class="guardar btn btn-primary" type="submit">Agregar</button>
+          <button  class="guardar btn btn-primary" type="submit">Submit form</button>
         </div>
-      </form>
-      `;
+        `;
+        divMateriales.insertAdjacentElement('beforeend', div);
     }
-    updated(){
-        const btnGuardar=this.shadowRoot.querySelector('.guardar')
-        btnGuardar.addEventListener('click',(e)=>{
-            e.preventDefault();
-            const  form= this.shadowRoot.querySelector('.form-data')
-            const  date= this.shadowRoot.querySelectorAll('input[type="date"]')
-            const  datos= Object.fromEntries(new FormData(form).entries())
-            const  producto= JSON.parse(JSON.stringify(datos));
-            const {idMateriaPrima,nombre,descripcion,categoria,proveedor,costoPorunidad,unidadDeMedida,cantidadEnStock,fechaDeAdquisicion,ubicacionEnAlmacen,notasAdicionales}=producto
-            date.forEach(( element,index )=>{
-              this.fecha[index]=element.value
-            })
-            console.log(date)
-            this.product.idMateriaPrima=idMateriaPrima
-            this.product.nombre=nombre
-            this.product.descripcion=descripcion
-            this.product.categoria=categoria
-            this.product.proveedor=proveedor
-            this.product.costoPorunidad=costoPorunidad
-            this.product.unidadDeMedida=unidadDeMedida
-            this.product.cantidadEnStock=cantidadEnStock
-            this.product.fechaDeAdquisicion=this.fecha[0]
-            this.product.fechabeVencimiento=this.fecha[1]
-            this.product.ubicacionEnAlmacen=ubicacionEnAlmacen
-            this.product.notasAdicionales=notasAdicionales
 
-            console.log(this.product)
-            console.log({idMateriaPrima,nombre,descripcion,categoria,proveedor,costoPorunidad,unidadDeMedida,cantidadEnStock,fechaDeAdquisicion,ubicacionEnAlmacen,notasAdicionales})
-
-          const response=  fetch('https://6658b08f5c36170526498159.mockapi.io/productos', {
+    _guardarClickHandler(e) {
+        e.preventDefault();
+        const form = this.shadowRoot.querySelector('.form-data');
+        const datos = Object.fromEntries(new FormData(form).entries());
+        const producto = JSON.parse(JSON.stringify(datos));
+        const { idProducto, nombre, horasDeElaboracion, personalRequrido, ...material } = producto;
+        this.producto.idProducto = idProducto;
+        this.producto.nombre = nombre;
+        this.producto.horasDeElaboracion = horasDeElaboracion;
+        this.producto.personalRequrido = personalRequrido;
+        this.producto.materiales = material;
+        console.log(this.producto);
+        const response=  fetch('https://6659f969de346625136e9f20.mockapi.io/productos', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'
               },
-              body: JSON.stringify(this.product)
+              body: JSON.stringify(this.producto)
           })
           
           .then(response => response.json())
@@ -137,8 +135,5 @@ export class formulario extends LitElement{
               console.error('Error:', error);
               alert('Hubo un error al guardar los datos.');
           });
-
-        })
     }
-   
-};
+}
