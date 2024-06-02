@@ -2,6 +2,26 @@ import { LitElement, html, css } from 'lit';
 
 export class DataDisplay extends LitElement {
     static styles = css`
+    
+    :host {
+      display: block;
+      width: 90vw; /* Ocupa todo el ancho de la pantalla */
+      box-sizing: border-box;
+    }
+
+    .contenedor_informes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      
+      box-sizing: border-box;
+      
+      width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    }
+    .card{
+      width: 30%; /* Asegura que el contenedor ocupe todo el ancho */
+      margin-top: 20px;
+    }
     .item {
       border: 1px solid #ccc;
       padding: 16px;
@@ -35,6 +55,19 @@ export class DataDisplay extends LitElement {
     }
     button {
       margin: 5px;
+    }
+    @media (max-width: 980px) {
+      .card {
+        width: 90%; /* Asegura que el contenedor ocupe todo el ancho */
+      }
+    }
+    @media (max-width: 500px) {
+      .card {
+        width: 90%; /* Asegura que el contenedor ocupe todo el ancho */
+      }
+      :host { 
+        width: 70vw; /* Ocupa todo el ancho de la pantalla */
+      }
     }
   `;
   static properties = {
@@ -105,113 +138,116 @@ export class DataDisplay extends LitElement {
 
   render() {
     return html`
-      ${this.data.map(item => {
-        // mano obra
-        const salario_base = parseInt(item.manoDeObra.salario_base, 10)
-        const horas_trabajadas = parseInt(item.manoDeObra.horas_trabajadas, 10)
-        const beneficios = parseInt(item.manoDeObra.beneficios, 10)
-        const prestaciones = parseInt(item.manoDeObra.prestaciones, 10)
-        const costos_indirectos = parseInt(item.manoDeObra.costos_indirectos, 10)
-        const empleados = parseInt(item.manoDeObra.empleados, 10)
+    <div class="contenedor_informes">
+    ${this.data.map(item => {
+      // mano obra
+      const salario_base = parseInt(item.manoDeObra.salario_base, 10)
+      const horas_trabajadas = parseInt(item.manoDeObra.horas_trabajadas, 10)
+      const beneficios = parseInt(item.manoDeObra.beneficios, 10)
+      const prestaciones = parseInt(item.manoDeObra.prestaciones, 10)
+      const costos_indirectos = parseInt(item.manoDeObra.costos_indirectos, 10)
+      const empleados = parseInt(item.manoDeObra.empleados, 10)
 
-        const base_horas = salario_base*horas_trabajadas
-        const suma_obra = beneficios+prestaciones+costos_indirectos
-        const sumaporempleados = suma_obra*empleados
-        const manoDeObraTotal = base_horas + sumaporempleados;
-        
+      const base_horas = salario_base*horas_trabajadas
+      const suma_obra = beneficios+prestaciones+costos_indirectos
+      const sumaporempleados = suma_obra*empleados
+      const manoDeObraTotal = base_horas + sumaporempleados;
+      
 
-        // materia prima
-        let materiaPrimaTotal = 0;
-        let sumaCantidad = 0;
-        
+      // materia prima
+      let materiaPrimaTotal = 0;
+      let sumaCantidad = 0;
+      
 
-        const materiaPrimaDetalles = item.materiaPrima.map(producto => {
-          const totalProducto =parseInt(producto.valor ,10)  * parseInt(producto.cantidad,10);
-          materiaPrimaTotal += totalProducto;
-          sumaCantidad += parseInt(producto.cantidad,10);
-          return html`
-            <p class="card-title">${producto.producto}: ${totalProducto}</p>
-          `;
-        });
-
-        //costos indirectos
-
-        let sumacosto = 0
-        const costos = item.costosIndirectos.descripcion
-        const horasmes = horas_trabajadas*empleados
-        let costosindirectos= 0
-
-        const detallesCostoaIndirectos = costos.map(costo =>{
-            sumacosto += parseInt(costo.valor,10)
-            costosindirectos = (sumacosto*horas_trabajadas)/horasmes
-            return html `
-             <p class="card-title">${costo.tipocosto}: ${costo.valor}</p>
-            `
-        })
-
-        //productividad
-
-        const defectuosos =  parseInt(item.productividad,10)
-        const sumatotal = costosindirectos+materiaPrimaTotal+manoDeObraTotal
-        const produccionEfectiva = sumaCantidad-defectuosos
-
-        console.log(sumaCantidad)
-        console.log(horas_trabajadas)
-        const productividad = Math.ceil(sumaCantidad / horas_trabajadas)
-        const costoOperativos =sumatotal/sumaCantidad
-        const tasaDefectuosos = (defectuosos/sumaCantidad)*100
-        const eficienciaOperativa = produccionEfectiva/sumatotal
-
-        //por producto
-        const manoObraProducto = manoDeObraTotal/sumaCantidad
-        const materiaPrimaProducto = materiaPrimaTotal/sumaCantidad
-        const costosProducto = costos_indirectos/sumaCantidad
-
-       const sumaproducto = manoObraProducto+materiaPrimaProducto+costosProducto
-
+      const materiaPrimaDetalles = item.materiaPrima.map(producto => {
+        const totalProducto =parseInt(producto.valor ,10)  * parseInt(producto.cantidad,10);
+        materiaPrimaTotal += totalProducto;
+        sumaCantidad += parseInt(producto.cantidad,10);
         return html`
-        <style rel="stylesheet">
-          @import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
-        </style>
-        <div class="card" >
+          <p class="card-title">${producto.producto}: ${totalProducto}</p>
+        `;
+      });
+
+      //costos indirectos
+
+      let sumacosto = 0
+      const costos = item.costosIndirectos.descripcion
+      const horasmes = horas_trabajadas*empleados
+      let costosindirectos= 0
+
+      const detallesCostoaIndirectos = costos.map(costo =>{
+          sumacosto += parseInt(costo.valor,10)
+          costosindirectos = (sumacosto*horas_trabajadas)/horasmes
+          return html `
+           <p class="card-title">${costo.tipocosto}: ${costo.valor}</p>
+          `
+      })
+
+      //productividad
+
+      const defectuosos =  parseInt(item.productividad,10)
+      const sumatotal = costosindirectos+materiaPrimaTotal+manoDeObraTotal
+      const produccionEfectiva = sumaCantidad-defectuosos
+
+      console.log(sumaCantidad)
+      console.log(horas_trabajadas)
+      const productividad = Math.ceil(sumaCantidad / horas_trabajadas)
+      const costoOperativos =sumatotal/sumaCantidad
+      const tasaDefectuosos = (defectuosos/sumaCantidad)*100
+      const eficienciaOperativa = produccionEfectiva/sumatotal
+
+      //por producto
+      const manoObraProducto = manoDeObraTotal/sumaCantidad
+      const materiaPrimaProducto = materiaPrimaTotal/sumaCantidad
+      const costosProducto = costos_indirectos/sumaCantidad
+
+     const sumaproducto = manoObraProducto+materiaPrimaProducto+costosProducto
+
+      return html`
+      <style rel="stylesheet">
+        @import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
+      </style>
+      <div class="card" >
+      
+        <h5 class="card-header">${item.id}</h5>
         
-          <h5 class="card-header">${item.id}</h5>
+        <div class="card-body">
+        <h3 class="card-title">Productividad: </h3>
+          <p class="card-title">productividad: ${productividad} unidades por hora</p>
+          <p class="card-title">costo operativos por unidad: ${costoOperativos}</p>
+          <p class="card-title">tasa de defectos: ${tasaDefectuosos}%</p>
+          <p class="card-title">eficiencia operativa: ${eficienciaOperativa}</p>
           
-          <div class="card-body">
-          <h3 class="card-title">Productividad: </h3>
-            <p class="card-title">productividad: ${productividad} unidades por hora</p>
-            <p class="card-title">costo operativos por unidad: ${costoOperativos}</p>
-            <p class="card-title">tasa de defectos: ${tasaDefectuosos}%</p>
-            <p class="card-title">eficiencia operativa: ${eficienciaOperativa}</p>
-            
-            <h3 class="card-title">Costos por lote:</h3>
-            <h6 class="card-title">Mano de obra: </h6>
-            ${manoDeObraTotal}
-            <h6 class="card-title">Materia prima: </h6>
-            ${materiaPrimaDetalles}
-            <p class="card-title">costos totales: ${materiaPrimaTotal}</p>
+          <h3 class="card-title">Costos por lote:</h3>
+          <h6 class="card-title">Mano de obra: </h6>
+          ${manoDeObraTotal}
+          <h6 class="card-title">Materia prima: </h6>
+          ${materiaPrimaDetalles}
+          <p class="card-title">costos totales: ${materiaPrimaTotal}</p>
 
 
-            <h6 class="card-title">Costos indirectos:</h6>
-            ${detallesCostoaIndirectos}
-            <p class="card-title">costos indirectos totales por lote: ${costosindirectos}</p>
+          <h6 class="card-title">Costos indirectos:</h6>
+          ${detallesCostoaIndirectos}
+          <p class="card-title">costos indirectos totales por lote: ${costosindirectos}</p>
 
 
-            <h5 class="card-title">Costos por lote: ${sumatotal}</h5>
+          <h5 class="card-title">Costos por lote: ${sumatotal}</h5>
 
-            <h3 class="card-title">Costos por producto: </h3>
-            <p class="card-title">Mano de obra: ${manoObraProducto} </p>
-            <p class="card-title">Materia prima: ${materiaPrimaProducto} </p>
-            <p class="card-title">Costos indirectos: ${costosProducto} </p>
-            <h5 class="card-title">Costos por producto: ${sumaproducto}</h5>
+          <h3 class="card-title">Costos por producto: </h3>
+          <p class="card-title">Mano de obra: ${manoObraProducto} </p>
+          <p class="card-title">Materia prima: ${materiaPrimaProducto} </p>
+          <p class="card-title">Costos indirectos: ${costosProducto} </p>
+          <h5 class="card-title">Costos por producto: ${sumaproducto}</h5>
 
 
-            <button class="btn btn-primary" @click="${() => { this.editItem = { ...item }; }}">Editar</button>
-            <button class="btn btn-primary" @click="${() => this.eliminar(item.id)}">Eliminar</button>
-          </div>
-        </div>`;
-        
-      })}
+          <button class="btn btn-primary" @click="${() => { this.editItem = { ...item }; }}">Editar</button>
+          <button class="btn btn-primary" @click="${() => this.eliminar(item.id)}">Eliminar</button>
+        </div>
+      </div>`;
+      
+    })}
+    </div>
+      
       ${this.editItem ? html`
         <div class="cont_edicion" >
         
