@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { formulario } from '../forms/addProduct';
 import { costosproductividad } from '../formsProd/formProductividad.js';
 import {CostosForm} from '../formsProd/costosIndi.js'
+import { DataDisplay } from '../reportes/datos.js';
 
 export class Interfaz extends LitElement {
   static properties = {
@@ -62,7 +63,7 @@ export class Interfaz extends LitElement {
                     </a>
                     
                 </li>
-                <li class="has-subnav">
+                <li class="informes">
                     <a href="#">
                        <i class="fa fa-camera-retro fa-2x"><img class="img" src="./public/img/inform.png" alt=""></i>
                         <span class="nav-text">
@@ -140,6 +141,14 @@ export class Interfaz extends LitElement {
       const costdiv = document.createElement('cost-div')
       divInfo.appendChild(costdiv);
       customElements.define("cost-div", CostosForm);
+  });
+  const btninforme =this.shadowRoot.querySelector('.informes')
+    btninforme.addEventListener('click',(e)=>{
+      const divInfo=this.shadowRoot.querySelector('.info')
+      divInfo.innerHTML=''
+      const costdiv = document.createElement('data-display')
+      divInfo.appendChild(costdiv);
+      customElements.define('data-display', DataDisplay);
   });
   }
 }
