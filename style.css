@@ -19,18 +19,18 @@ a{
   font-family: "Mochiy Pop One", sans-serif;
   font-size: 1.5rem;
 }
-.addProduct {
-  margin-top: 2%;
+.addProduct{
+    margin-top: 2%;
 }
 .info-product {
   width: 30vw;
 }
-.materiales-product {
-  width: 60vw;
+.materiales-product{
+    width: 60vw;
 }
-.logoImg {
-  width: 250px;
-  margin-top: 100px;
+.logoImg{
+    width: 250px;
+    margin-top: 200px;
 }
 .logo {
   width: 70px;

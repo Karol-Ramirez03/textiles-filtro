@@ -23,6 +23,8 @@ export class producto extends LitElement{
     _bindListeners() {
         this._guardarClickHandler = this._guardarClickHandler.bind(this);
         this._agregarClickHandler = this._agregarClickHandler.bind(this);
+        this._quitarClickHandler = this._quitarClickHandler.bind(this)
+        this._editarClickHandler = this._editarClickHandler.bind(this)
     }
     render(){
         return html`
@@ -50,17 +52,21 @@ export class producto extends LitElement{
             </div>
             
         </div>
-        <div class="materiales-product d-flex flex-column">
+        <div class="materiales d-flex flex-column">
             <div class="col-md-4 align-self-center">
                 <label for="cost-product" class="form-label">Materiales</label>
                 <button class="agregar btn btn-primary" type="submit">+</button>
+            </div>
+            <div class="materiales-product">
             </div>
         </div> 
         </form>
         <div class="col-12">
             <button  class="guardar btn btn-primary" type="submit">Cargar Producto</button>
         </div>
-
+        <div class="divEditar col-12">
+            <button  class="editar btn btn-warning" type="submit">Editar Producto</button>
+        </div>
         
         `
     }
@@ -71,15 +77,21 @@ export class producto extends LitElement{
     firstUpdated() {
         const btnGuardar = this.shadowRoot.querySelector('.guardar');
         const btnAgregar = this.shadowRoot.querySelector('.agregar');
+        const divMateriales=this.shadowRoot.querySelector('.materiales-product')
+        const btnEditar = this.shadowRoot.querySelector('.editar');
 
         btnAgregar.addEventListener('click', this._agregarClickHandler);
         btnGuardar.addEventListener('click', this._guardarClickHandler);
+        divMateriales.addEventListener('click', this._quitarClickHandler);
+        btnEditar.addEventListener('click', this._editarClickHandler);
+
     }
 
     _agregarClickHandler(e) {
         e.preventDefault();
         this.cont += 1;
         const divMateriales = this.shadowRoot.querySelector('.materiales-product');
+<<<<<<< HEAD
         const div = document.createElement('div');
         div.classList.add('row', 'justify-content-md-center');
         div.innerHTML = `
@@ -101,9 +113,25 @@ export class producto extends LitElement{
         </div>
         <div class="col-12">
           <button  class="guardar btn btn-primary" type="submit">Submit form</button>
+=======
+        
+        const div =`
+        <div class="row justify-content-md-center material${this.cont}">
+            <div class="col-md-8">
+                <label for="idMateria${this.cont}" class="form-label">Id De la materia prima</label>
+                <input type="text" class="form-control" name="idMateria${this.cont}" id="idMateria${this.cont}">
+            </div>
+            <div class="col-md-2">
+                <label for="Cantidad${this.cont}" class="form-label">Cantidad</label>
+                <input type="number" class="form-control" name="Cantidad${this.cont}" id="cantidad${this.cont}">
+            </div>
+            <div class="col-md-1 position-relative">
+                <button type="button" name="quitar" class=" btn btn-danger position-absolute bottom-0 start-0" data-id="${this.cont}">-</button>
+            </div>
+>>>>>>> f87671c9dea28855ac22d7f60b4542bd4d89e95a
         </div>
         `;
-        divMateriales.insertAdjacentElement('beforeend', div);
+        divMateriales.insertAdjacentHTML('beforeend', div);
     }
 
     _guardarClickHandler(e) {
@@ -135,5 +163,18 @@ export class producto extends LitElement{
               console.error('Error:', error);
               alert('Hubo un error al guardar los datos.');
           });
+    }
+    _quitarClickHandler(e){
+        e.preventDefault();
+        console.log(e.target.dataset.id)
+        if (e.target.name=='quitar'){
+            let id=e.target.dataset.id
+            let divEliminar=this.shadowRoot.querySelector(`.material${id}`)
+            divEliminar.parentNode.removeChild(divEliminar)
+        }
+    }
+    _editarClickHandler(e){
+        e.preventDefault();
+        
     }
 }

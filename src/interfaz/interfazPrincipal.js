@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 import { materiaPrima } from '../forms/addMateriaPrima.js';
 import { costosproductividad } from '../formsProd/formProductividad.js';
 import {CostosForm} from '../formsProd/costosIndi.js'
+import { DataDisplay } from '../reportes/datos.js';
 import { producto } from '../forms/addProduct.js';
 
 export class Interfaz extends LitElement {
@@ -63,7 +64,7 @@ export class Interfaz extends LitElement {
                     </a>
                     
                 </li>
-                <li class="has-subnav">
+                <li class="informes">
                     <a href="#">
                        <i class="fa fa-camera-retro fa-2x"><img class="img" src="./public/img/4info.png" alt=""></i>
                         <span class="nav-text">
@@ -142,14 +143,22 @@ export class Interfaz extends LitElement {
       divInfo.appendChild(costdiv);
       customElements.define("cost-div", CostosForm);
   });
-  const btnProducto =this.shadowRoot.querySelector('.producto')
-  btnProducto.addEventListener('click',(e)=>{
-    const divInfo=this.shadowRoot.querySelector('.info')
-    divInfo.innerHTML=''
-    const productdiv = document.createElement('product-div')
-    divInfo.appendChild(productdiv);
-    customElements.define("product-div", producto);
-});
+  const btninforme =this.shadowRoot.querySelector('.informes')
+    btninforme.addEventListener('click',(e)=>{
+      const divInfo=this.shadowRoot.querySelector('.info')
+      divInfo.innerHTML=''
+      const infordiv = document.createElement('infor-div')
+      divInfo.appendChild(infordiv);
+      customElements.define("infor-div", DataDisplay);
+  });
+  const btnproducto =this.shadowRoot.querySelector('.producto')
+    btnproducto.addEventListener('click',(e)=>{
+      const divInfo=this.shadowRoot.querySelector('.info')
+      divInfo.innerHTML=''
+      const produdiv = document.createElement('produ-div')
+      divInfo.appendChild(produdiv);
+      customElements.define("produ-div", producto);
+  });
   }
 }
 
