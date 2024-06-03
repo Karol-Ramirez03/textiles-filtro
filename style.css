@@ -10,6 +10,11 @@ body{
   font-size: 18px;
   font-family: "Caveat", cursive;
 }
+.addProduct{
+    margin-top: 2%;
+}
+.info-product{
+    width: 30vw;
 .info-product {
   width: 30vw;
 }
