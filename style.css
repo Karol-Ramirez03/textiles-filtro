@@ -5,13 +5,16 @@
     font-family: "Caveat", cursive;;
 }
 .addProduct{
-    margin-top: 2%;
+    margin: 2% 0;
 }
 .info-product{
     width: 30vw;
 }
-.materiales-product{
+.materiales{
     width: 60vw;
+}
+.divEditar{
+    margin-top: 2%;
 }
 .logoImg{
     width: 250px;
