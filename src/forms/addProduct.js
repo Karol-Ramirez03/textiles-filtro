@@ -91,27 +91,19 @@ export class producto extends LitElement{
         e.preventDefault();
         this.cont += 1;
         const divMateriales = this.shadowRoot.querySelector('.materiales-product');
-        const div = document.createElement('div');
-        div.classList.add('row', 'justify-content-md-center');
-        div.innerHTML = `
-        <div class="col-md-8">
-            <label for="idMateria${this.cont}" class="form-label">Id De la materia prima</label>
-            <input type="text" class="form-control" name="idMateria${this.cont}" id="idMateria${this.cont}">
-        </div>
-        <div class="col-md-2">
-            <label for="Cantidad${this.cont}" class="form-label">Cantidad</label>
-            <input type="number" class="form-control" name="Cantidad${this.cont}" id="cantidad${this.cont}">
-        </div>
-        <div class=" col-md-4">
-          <label for="ubicacion-product" class="form-label">Ubicacion del producto</label>
-          <input type="text" name="ubicacionEnAlmacen" class="in form-control" id="ubicacion-product" placeholder="" >
-        </div>
-        <div class="col-md-4">
-          <label for="notes-product">Notas Adicionales</label>
-          <textarea class="in form-control" name="notasAdicionales" placeholder="Leave a comment here" id="notes-product" style="height: 100px"></textarea>
-        </div>
-        <div class="col-12">
-          <button  class="guardar btn btn-primary" type="submit">Submit form</button>
+        const div =`
+        <div class="row justify-content-md-center material${this.cont}">
+            <div class="col-md-8">
+                <label for="idMateria${this.cont}" class="form-label">Id De la materia prima</label>
+                <input type="text" class="form-control" name="idMateria${this.cont}" id="idMateria${this.cont}">
+            </div>
+            <div class="col-md-2">
+                <label for="Cantidad${this.cont}" class="form-label">Cantidad</label>
+                <input type="number" class="form-control" name="Cantidad${this.cont}" id="cantidad${this.cont}">
+            </div>
+            <div class="col-md-1 position-relative">
+                <button type="button" name="quitar" class=" btn btn-danger position-absolute bottom-0 start-0" data-id="${this.cont}">-</button>
+            </div>
         </div>
         `;
         divMateriales.insertAdjacentHTML('beforeend', div);
