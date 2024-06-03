@@ -1,61 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Sevillana&display=swap');@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Jaro:opsz@6..72&family=Sevillana&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Sevillana&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Jaro:opsz@6..72&family=Sevillana&display=swap");
+*{
+    background-color: #FF9EAA;
+}
+body{
+    background-color: #FF9EAA; 
+}
+#nameLogo {
+  font-size: 18px;
+  font-family: "Caveat", cursive;
+}
+.info-product {
+  width: 30vw;
+}
+.materiales-product {
+  width: 60vw;
+}
+.logoImg {
+  width: 250px;
+  margin-top: 100px;
+}
+.logo {
+  width: 70px;
+  margin-right: 20px;
+  padding: 0;
+  position: relative;
+  bottom: 25px;
+}
+.card-costo {
+  margin-left: 10%;
+  width: 300%;
+}
+.img {
+  width: 30px;
+}
+.search {
+  margin-top: 20px;
+  align-self: flex-start;
+}
+.navbar {
+  height: 90px;
+  background-color: #97e7e28f;
+}
+.info {
+  margin-left: 100px;
+}
 
-#nameLogo{
-    font-size: 18px;
-    font-family: "Caveat", cursive;;
-}
-.info-product{
-    width: 30vw;
-}
-.materiales-product{
-    width: 60vw;
-}
-.logoImg{
-    width: 250px;
-    margin-top: 100px;
-}
-.logo{
-    width: 70px;
-    margin-right: 20px;
-    padding: 0;
-    position: relative;
-    bottom: 25px;
-}
-.card-costo{
-    margin-left: 10%;
-    width: 300%;
-}
-.img{
-    width: 30px;
-}
-.search{
-    margin-top: 20px;
-    align-self: flex-start;
-}
-.navbar{
-    height: 90px;
-    background-color: #97e7e28f;
-}
-.info{
-    margin-left: 100px
+/* estilos home */
+.second {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-/* Boton add */
+/* Boton add
 #allcostos {
-    max-width: 50%;
-    border-radius: 10px;
-    font-size: 20px;
-    text-align: center;
-    display: inline-block;
-    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-    padding: 5px;
-    background-image: linear-gradient(to left, #fdde55, #feefad);
-    border: 0;
-    color: #151515;
-    font-weight: 700;
-    box-sizing: inherit;
-    justify-items: center;
-  }
+  max-width: 50%;
+  border-radius: 10px;
+  font-size: 20px;
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  background-image: linear-gradient(to left, #fdde55, #feefad);
+  border: 0;
+  color: #151515;
+  font-weight: 700;
+  box-sizing: inherit;
+  justify-items: center;
+} */
 
 /* ---------------------------------------
 -----------------menu---------------------
@@ -64,132 +82,224 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
 .fa-2x {
-font-size: 2em;
+  font-size: 2em;
 }
 .fa {
-position: relative;
-display: table-cell;
-width: 60px;
-height: 36px;
-text-align: center;
-vertical-align: middle;
-font-size:20px;
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
 }
 
-
-.main-menu:hover,nav.main-menu.expanded {
-width:250px;
-overflow:visible;
+.main-menu:hover,
+nav.main-menu.expanded {
+  width: 250px;
+  overflow: visible;
 }
 
 .main-menu {
-background:#212121;
-border-right:1px solid #e5e5e5;
-position:absolute;
-top:90px;
-bottom:0;
-height:100%;
-left:0;
-width:60px;
-overflow:hidden;
--webkit-transition:width .05s linear;
-transition:width .05s linear;
-/* -webkit-transform:translateZ(0) scale(1,1); */
-z-index:1000;
+  background: #212121;
+  border-right: 1px solid #e5e5e5;
+  position: absolute;
+  top: 90px;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  width: 60px;
+  overflow: hidden;
+  -webkit-transition: width 0.05s linear;
+  transition: width 0.05s linear;
+  /* -webkit-transform:translateZ(0) scale(1,1); */
+  z-index: 1000;
 }
 
-.main-menu>ul {
-margin:7px 0;
+.main-menu > ul {
+  margin: 7px 0;
 }
 
 .main-menu li {
-position:relative;
-display:block;
-width:250px;
+  position: relative;
+  display: block;
+  width: 250px;
 }
 
-.main-menu li>a {
-position:relative;
-display:table;
-border-collapse:collapse;
-border-spacing:0;
-color:#999;
- font-family: arial;
-font-size: 14px;
-text-decoration:none;
-/* -webkit-transform:translateZ(0) scale(1,1); */
--webkit-transition:all .1s linear;
-transition:all .1s linear;
-  
+.main-menu li > a {
+  position: relative;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #999;
+  font-family: arial;
+  font-size: 14px;
+  text-decoration: none;
+  /* -webkit-transform:translateZ(0) scale(1,1); */
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 .main-menu .nav-icon {
-position:relative;
-display:table-cell;
-width:60px;
-height:36px;
-text-align:center;
-vertical-align:middle;
-font-size:18px;
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
 }
 
 .main-menu .nav-text {
-position:relative;
-display:table-cell;
-vertical-align:middle;
-width:190px;
-  font-family: 'Titillium Web', sans-serif;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 190px;
+  font-family: "Titillium Web", sans-serif;
 }
 
-.main-menu>ul.logout {
-position:absolute;
-left:0;
-bottom:0;
+.main-menu > ul.logout {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
 .no-touch .scrollable.hover {
-overflow-y:hidden;
+  overflow-y: hidden;
 }
 
 .no-touch .scrollable.hover:hover {
-overflow-y:auto;
-overflow:visible;
+  overflow-y: auto;
+  overflow: visible;
 }
 
-a:hover,a:focus {
-text-decoration:none;
+a:hover,
+a:focus {
+  text-decoration: none;
 }
 
 nav {
--webkit-user-select:none;
--moz-user-select:none;
--ms-user-select:none;
--o-user-select:none;
-user-select:none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
-nav ul,nav li {
-outline:0;
-margin:0;
-padding:0;
+nav ul,
+nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0;
 }
-.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
-color:#fff;
-background-color:#000000;
+.main-menu li:hover > a,
+nav.main-menu li.active > a,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
+.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+.dashboard-page nav.dashboard-menu ul li.active a {
+  color: #fff;
+  background-color: #000000;
 }
 .area {
-float: left;
-background: #e2e2e2;
-width: 100%;
-height: 100%;
+  float: left;
+  background: #e2e2e2;
+  width: 100%;
+  height: 100%;
 }
 @font-face {
-  font-family: 'Titillium Web';
+  font-family: "Titillium Web";
   font-style: normal;
   font-weight: 300;
-  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+  src: local("Titillium WebLight"), local("TitilliumWeb-Light"),
+    url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff)
+      format("woff");
 }
 /* ---------------------------------------
------------------fm productos---------------------
+----------------- img flotantes---------------------
 -----------------------------------------
 */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  
+  .container {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .button-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .button1, .button2, .button3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .button1 img, .button2 img, .button3 img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .button1:hover img, .button2:hover img, .button3:hover img {
+    transform: scale(1.1);
+  }
+  
+  @keyframes rotate1 {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg) translateX(50px);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg) translateX(50px);
+    }
+  }
+  
+  @keyframes rotate2 {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg) translateX(50px);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(-360deg) translateX(50px);
+    }
+  }
+  
+  @keyframes rotate3 {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg) translateX(50px);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg) translateX(50px);
+    }
+  }
+  
+  .button1 {
+    animation: rotate1 5s linear infinite;
+  }
+  
+  .button2 {
+    animation: rotate2 6s linear infinite;
+  }
+  
+  .button3 {
+    animation: rotate3 7s linear infinite;
+  }
+  
