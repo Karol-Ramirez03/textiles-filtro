@@ -1,11 +1,13 @@
 import { LitElement, html, css } from "lit";
 
-class HomeComponent extends LitElement {
+export class HomeComponent extends LitElement {
   static styles = css`
     :host {
       display: block;
       text-align: center;
       padding: 2rem;
+      width: 90%;
+
     }
     .btn {
       background-color: #007bff;
@@ -131,4 +133,4 @@ class HomeComponent extends LitElement {
   }
 }
 
-customElements.define("home-component", HomeComponent);
+

@@ -4,6 +4,7 @@ import { costosproductividad } from '../formsProd/formProductividad.js';
 import {CostosForm} from '../formsProd/costosIndi.js'
 import { DataDisplay } from '../reportes/datos.js';
 import { producto } from '../forms/addProduct.js';
+import { HomeComponent } from './home-component.js.js';
 
 export class Interfaz extends LitElement {
   static properties = {
@@ -37,8 +38,8 @@ export class Interfaz extends LitElement {
         <div class="menu">
           <nav class="main-menu">
             <ul>
-                <li>
-                    <a  href="https://jbfarrow.com">
+                <li >
+                    <a class='home' href="https://jbfarrow.com">
                         <i class=" fa fa-home fa-2x"><img class="img" src="./public/img/1home.png" alt=""></i>
                         <span class="nav-text">
                            Home
@@ -159,7 +160,17 @@ export class Interfaz extends LitElement {
       divInfo.appendChild(produdiv);
       customElements.define("produ-div", producto);
   });
+  const btnhome =this.shadowRoot.querySelector('.home')
+      btnhome.addEventListener('click',(e)=>{
+      const divInfo=this.shadowRoot.querySelector('.info')
+      divInfo.innerHTML=''
+      const produdiv = document.createElement('home-component')
+      divInfo.appendChild(produdiv);
+      customElements.define("home-component", HomeComponent);
+  });
   }
 }
+  
+
 
 
