@@ -1,10 +1,11 @@
 import { LitElement, html } from "lit"
+import { cargarDatos,llamarDatos,actualizarData } from "../mockapi/mockapiData"
 
 export class producto extends LitElement{
     static properties={
         condition:{},
         producto:{},
-        cont:{}
+        cont:{},
     }
     constructor(){
         super()
@@ -118,37 +119,25 @@ export class producto extends LitElement{
         this.producto.nombre = nombre;
         this.producto.horasDeElaboracion = horasDeElaboracion;
         this.producto.personalRequrido = personalRequrido;
-        this.producto.materiales = material;
-        console.log(this.producto);
-        const response=  fetch('https://6659f969de346625136e9f20.mockapi.io/productos', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(this.producto)
-          })
-          
-          .then(response => response.json())
-          .then(data => {
-              console.log('Success:', data);
-              alert('Datos guardados exitosamente!');
-          })
-          .catch((error) => {
-              console.error('Error:', error);
-              alert('Hubo un error al guardar los datos.');
-          });
+        this.producto.materiales=material
+        // const materialesTemp = material;
+
+        cargarDatos('https://6659f969de346625136e9f20.mockapi.io/productos',this.producto)
+        
     }
     _quitarClickHandler(e){
         e.preventDefault();
         console.log(e.target.dataset.id)
         if (e.target.name=='quitar'){
             let id=e.target.dataset.id
+
             let divEliminar=this.shadowRoot.querySelector(`.material${id}`)
             divEliminar.parentNode.removeChild(divEliminar)
         }
     }
     _editarClickHandler(e){
         e.preventDefault();
-        
-    }
+        actualizarData('https://6659f969de346625136e9f20.mockapi.io/productos',1)
+        // llamarDatos('https://6659f969de346625136e9f20.mockapi.io/productos')
+            }
 }
