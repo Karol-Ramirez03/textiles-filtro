@@ -38,8 +38,8 @@ export class Interfaz extends LitElement {
         <div class="menu">
           <nav class="main-menu">
             <ul>
-                <li >
-                    <a class='home' href="https://jbfarrow.com">
+                <li class='home'>
+                    <a  href="#">
                         <i class=" fa fa-home fa-2x"><img class="img" src="./public/img/1home.png" alt=""></i>
                         <span class="nav-text">
                            Home
