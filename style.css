@@ -1,20 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Sevillana&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Jaro:opsz@6..72&family=Sevillana&display=swap");
-*{
-    background-color: #FF9EAA;
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"); 
+body {
+  background-color: #ff9eaa;
 }
-body{
-    background-color: #FF9EAA; 
-}
-#nameLogo {
+/* #nameLogo {
   font-size: 18px;
   font-family: "Caveat", cursive;
+} */
+
+/* app */
+h1 { 
+  font-family: "Mochiy Pop One", sans-serif;
 }
-.addProduct{
-    margin-top: 2%;
+span{
+  font-size: 1rem;
+  font-family: "Mochiy Pop One", sans-serif;
 }
-.info-product{
-    width: 30vw;
+a{
+  font-family: "Mochiy Pop One", sans-serif;
+  font-size: 1.5rem;
+}
+.addProduct {
+  margin-top: 2%;
+}
 .info-product {
   width: 30vw;
 }
@@ -45,24 +52,11 @@ body{
 }
 .navbar {
   height: 90px;
-  background-color: #97e7e28f;
+  background-color: #7469B6;
 }
 .info {
   margin-left: 100px;
 }
-
-/* estilos home */
-.second {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 /* Boton add
 #allcostos {
   max-width: 50%;
@@ -84,8 +78,6 @@ body{
 -----------------menu---------------------
 -----------------------------------------
 */
-@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
 .fa-2x {
   font-size: 2em;
 }
@@ -98,15 +90,13 @@ body{
   vertical-align: middle;
   font-size: 20px;
 }
-
 .main-menu:hover,
 nav.main-menu.expanded {
   width: 250px;
   overflow: visible;
 }
-
 .main-menu {
-  background: #212121;
+  background-color:  #5DEBD7;
   border-right: 1px solid #e5e5e5;
   position: absolute;
   top: 90px;
@@ -117,34 +107,28 @@ nav.main-menu.expanded {
   overflow: hidden;
   -webkit-transition: width 0.05s linear;
   transition: width 0.05s linear;
-  /* -webkit-transform:translateZ(0) scale(1,1); */
   z-index: 1000;
 }
-
 .main-menu > ul {
   margin: 7px 0;
 }
-
 .main-menu li {
   position: relative;
   display: block;
   width: 250px;
 }
-
 .main-menu li > a {
   position: relative;
   display: table;
   border-collapse: collapse;
   border-spacing: 0;
-  color: #999;
+  color: #020202;
   font-family: arial;
   font-size: 14px;
   text-decoration: none;
-  /* -webkit-transform:translateZ(0) scale(1,1); */
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
 }
-
 .main-menu .nav-icon {
   position: relative;
   display: table-cell;
@@ -154,35 +138,28 @@ nav.main-menu.expanded {
   vertical-align: middle;
   font-size: 18px;
 }
-
 .main-menu .nav-text {
   position: relative;
   display: table-cell;
   vertical-align: middle;
   width: 190px;
-  font-family: "Titillium Web", sans-serif;
 }
-
 .main-menu > ul.logout {
   position: absolute;
   left: 0;
   bottom: 0;
 }
-
 .no-touch .scrollable.hover {
   overflow-y: hidden;
 }
-
 .no-touch .scrollable.hover:hover {
   overflow-y: auto;
   overflow: visible;
 }
-
 a:hover,
 a:focus {
   text-decoration: none;
 }
-
 nav {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -190,7 +167,6 @@ nav {
   -o-user-select: none;
   user-select: none;
 }
-
 nav ul,
 nav li {
   outline: 0;
@@ -207,104 +183,11 @@ nav.main-menu li.active > a,
 .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
 .dashboard-page nav.dashboard-menu ul li.active a {
   color: #fff;
-  background-color: #000000;
+  background-color: #B99470;
 }
 .area {
   float: left;
-  background: #e2e2e2;
+  background: #000000;
   width: 100%;
   height: 100%;
 }
-@font-face {
-  font-family: "Titillium Web";
-  font-style: normal;
-  font-weight: 300;
-  src: local("Titillium WebLight"), local("TitilliumWeb-Light"),
-    url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff)
-      format("woff");
-}
-/* ---------------------------------------
------------------ img flotantes---------------------
------------------------------------------
-*/
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-  }
-  
-  .container {
-    display: flex;
-    gap: 2rem;
-  }
-  
-  .button-wrapper {
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  
-  .button1, .button2, .button3 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: none;
-    background: none;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .button1 img, .button2 img, .button3 img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .button1:hover img, .button2:hover img, .button3:hover img {
-    transform: scale(1.1);
-  }
-  
-  @keyframes rotate1 {
-    0% {
-      transform: translate(-50%, -50%) rotate(0deg) translateX(50px);
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(360deg) translateX(50px);
-    }
-  }
-  
-  @keyframes rotate2 {
-    0% {
-      transform: translate(-50%, -50%) rotate(0deg) translateX(50px);
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(-360deg) translateX(50px);
-    }
-  }
-  
-  @keyframes rotate3 {
-    0% {
-      transform: translate(-50%, -50%) rotate(0deg) translateX(50px);
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(360deg) translateX(50px);
-    }
-  }
-  
-  .button1 {
-    animation: rotate1 5s linear infinite;
-  }
-  
-  .button2 {
-    animation: rotate2 6s linear infinite;
-  }
-  
-  .button3 {
-    animation: rotate3 7s linear infinite;
-  }
-  

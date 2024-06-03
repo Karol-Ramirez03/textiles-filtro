@@ -38,7 +38,7 @@ export class Interfaz extends LitElement {
             <ul>
                 <li>
                     <a  href="https://jbfarrow.com">
-                        <i class=" fa fa-home fa-2x"><img class="img" src="./public/img/home.png" alt=""></i>
+                        <i class=" fa fa-home fa-2x"><img class="img" src="./public/img/1home.png" alt=""></i>
                         <span class="nav-text">
                            Home
                         </span>
@@ -47,7 +47,7 @@ export class Interfaz extends LitElement {
                 </li>
                 <li class="has-subnav">
                     <a class="llamar" href="#">
-                        <i class="fa fa-globe fa-2x"><img class="img" src="./public/img/materiaPrima.png" alt=""></i>
+                        <i class="fa fa-globe fa-2x"><img class="img" src="./public/img/2mp.png" alt=""></i>
                         <span class="nav-text">
                             Materia prima
                         </span>
@@ -56,7 +56,7 @@ export class Interfaz extends LitElement {
                 </li>
                 <li class='costo' class="has-subnav">
                     <a href="#">
-                       <i class="fa fa-comments fa-2x"><img class="img" src="./public/img/calculate.png" alt=""></i>
+                       <i class="fa fa-comments fa-2x"><img class="img" src="./public/img/3cal.png" alt=""></i>
                         <span class="nav-text">
                             Cost Calculate
                         </span>
@@ -65,7 +65,7 @@ export class Interfaz extends LitElement {
                 </li>
                 <li class="has-subnav">
                     <a href="#">
-                       <i class="fa fa-camera-retro fa-2x"><img class="img" src="./public/img/inform.png" alt=""></i>
+                       <i class="fa fa-camera-retro fa-2x"><img class="img" src="./public/img/4info.png" alt=""></i>
                         <span class="nav-text">
                             Informs
                         </span>
@@ -74,7 +74,7 @@ export class Interfaz extends LitElement {
                 </li>
                 <li>
                     <a class="producto" href="#">
-                        <i class="fa fa-film fa-2x"><img class="img" src="./public/img/product.png" alt=""></i>
+                        <i class="fa fa-film fa-2x"><img class="img" src="./public/img/5prod.png" alt=""></i>
                         <span class="nav-text">
                             productos
                         </span>

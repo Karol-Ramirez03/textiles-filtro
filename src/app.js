@@ -17,7 +17,7 @@ export class inicio extends LitElement {
             @import "./node_modules/bootstrap/dist/css/bootstrap.css";
             @import "./style.css";
         </style>
-        <div class="div-inicio d-flex align-items-center justify-content-center flex-column text-black">
+        <div class="div-inicio d-flex align-items-center justify-content-end flex-column text-black">
             <img class="logoImg" src="./public/img/logo.png" alt="">
             <h1>Bienvenidos a Confecciones pepita</h1>
             <br>
