@@ -143,6 +143,22 @@ export class Interfaz extends LitElement {
       divInfo.appendChild(costdiv);
       customElements.define("cost-div", CostosForm);
   });
+  const btninforme =this.shadowRoot.querySelector('.informes')
+    btninforme.addEventListener('click',(e)=>{
+      const divInfo=this.shadowRoot.querySelector('.info')
+      divInfo.innerHTML=''
+      const infordiv = document.createElement('infor-div')
+      divInfo.appendChild(infordiv);
+      customElements.define("infor-div", DataDisplay);
+  });
+  const btnproducto =this.shadowRoot.querySelector('.producto')
+    btnproducto.addEventListener('click',(e)=>{
+      const divInfo=this.shadowRoot.querySelector('.info')
+      divInfo.innerHTML=''
+      const produdiv = document.createElement('produ-div')
+      divInfo.appendChild(produdiv);
+      customElements.define("produ-div", producto);
+  });
   }
 }
 
