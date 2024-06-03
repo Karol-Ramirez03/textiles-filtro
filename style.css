@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"); 
 body {
-  background-color: #ff9eaa;
+    background-image: url('https://media.giphy.com/media/tIjlaWUpzYaUYdsMLR/giphy.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    margin: 0;  
 }
 /* #nameLogo {
   font-size: 18px;
@@ -30,7 +35,9 @@ a{
 }
 .logoImg{
     width: 250px;
-    margin-top: 200px;
+    margin-top: 100px;
+    
+
 }
 .logo {
   width: 70px;
@@ -44,18 +51,26 @@ a{
   width: 300%;
 }
 .img {
-  width: 30px;
+  width: 50px;
+  gap: 2px
+}
+.img .img {
+  gap: 10px;
 }
 .search {
   margin-top: 20px;
   align-self: flex-start;
 }
 .navbar {
-  height: 90px;
+  width: 100%;
+  height: 15%;
   background-color: #7469B6;
+  position: fixed;
+  z-index: 5;
 }
 .info {
-  margin-left: 100px;
+  margin-left: 5.3%;
+  padding-top: 6%;
 }
 /* Boton add
 #allcostos {
@@ -98,8 +113,8 @@ nav.main-menu.expanded {
 .main-menu {
   background-color:  #5DEBD7;
   border-right: 1px solid #e5e5e5;
-  position: absolute;
-  top: 90px;
+  position: fixed;
+  top: 15%;
   bottom: 0;
   height: 100%;
   left: 0;

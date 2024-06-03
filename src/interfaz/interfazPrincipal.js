@@ -1,15 +1,15 @@
-import { LitElement, html } from 'lit';
-import { materiaPrima } from '../forms/addMateriaPrima.js';
-import { costosproductividad } from '../formsProd/formProductividad.js';
-import {CostosForm} from '../formsProd/costosIndi.js'
-import { DataDisplay } from '../reportes/datos.js';
-import { producto } from '../forms/addProduct.js';
-import { HomeComponent } from './home-component.js.js';
+import { LitElement, html } from "lit";
+import { materiaPrima } from "../forms/addMateriaPrima.js";
+import { costosproductividad } from "../formsProd/formProductividad.js";
+import { CostosForm } from "../formsProd/costosIndi.js";
+import { DataDisplay } from "../reportes/datos.js";
+import { producto } from "../forms/addProduct.js";
+import { HomeComponent } from "./home-component.js.js";
 
 export class Interfaz extends LitElement {
   static properties = {
     condition: {},
-    btnLlamar:{}
+    btnLlamar: {},
   };
 
   constructor() {
@@ -82,36 +82,11 @@ export class Interfaz extends LitElement {
                         </span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-book fa-2x"></i>
-                        <span class="nav-text">
-                           Surveying Jobs
-                        </span>
-                    </a>
-                </li>
-                <li>
-                   <a href="#">
-                       <i class="fa fa-cogs fa-2x"></i>
-                        <span class="nav-text">
-                            Tools & Resources
-                        </span>
-                    </a>
-                </li>
-                <li>
-                   <a href="#">
-                        <i class="fa fa-map-marker fa-2x"></i>
-                        <span class="nav-text">
-                            Member Map
-                        </span>
-                    </a>
-                </li>
-            </ul>
-
             <ul class="logout">
+            
                 <li>
                    <a href="#">
-                         <i class="fa fa-power-off fa-2x"></i>
+                         <i class="fa fa-power-off fa-2x"><img class="img" src="./public/img/out.png" alt=""></i>
                         <span class="nav-text">
                             Logout
                         </span>
@@ -119,58 +94,54 @@ export class Interfaz extends LitElement {
                 </li>  
             </ul>
         </nav>
+        <hr>
         </div>
         <div class="info">
           
         </div>
       </div>
     `;
-    
-  };
-  updated(){
-    const btnLlamar=this.shadowRoot.querySelector('.llamar')
-    btnLlamar.addEventListener('click',(e)=>{
-      const divInfo=this.shadowRoot.querySelector('.info')
-      divInfo.innerHTML=''
-      const infodiv = document.createElement('info-div')
-      divInfo.appendChild(infodiv)
-        customElements.define("info-div",materiaPrima)
+  }
+  updated() {
+    const btnLlamar = this.shadowRoot.querySelector(".llamar");
+    btnLlamar.addEventListener("click", (e) => {
+      const divInfo = this.shadowRoot.querySelector(".info");
+      divInfo.innerHTML = "";
+      const infodiv = document.createElement("info-div");
+      divInfo.appendChild(infodiv);
+      customElements.define("info-div", materiaPrima);
     });
-    const btncosto =this.shadowRoot.querySelector('.costo')
-    btncosto.addEventListener('click',(e)=>{
-      const divInfo=this.shadowRoot.querySelector('.info')
-      divInfo.innerHTML=''
-      const costdiv = document.createElement('cost-div')
+    const btncosto = this.shadowRoot.querySelector(".costo");
+    btncosto.addEventListener("click", (e) => {
+      const divInfo = this.shadowRoot.querySelector(".info");
+      divInfo.innerHTML = "";
+      const costdiv = document.createElement("cost-div");
       divInfo.appendChild(costdiv);
       customElements.define("cost-div", CostosForm);
-  });
-  const btninforme =this.shadowRoot.querySelector('.informes')
-    btninforme.addEventListener('click',(e)=>{
-      const divInfo=this.shadowRoot.querySelector('.info')
-      divInfo.innerHTML=''
-      const infordiv = document.createElement('infor-div')
+    });
+    const btninforme = this.shadowRoot.querySelector(".informes");
+    btninforme.addEventListener("click", (e) => {
+      const divInfo = this.shadowRoot.querySelector(".info");
+      divInfo.innerHTML = "";
+      const infordiv = document.createElement("infor-div");
       divInfo.appendChild(infordiv);
       customElements.define("infor-div", DataDisplay);
-  });
-  const btnproducto =this.shadowRoot.querySelector('.producto')
-    btnproducto.addEventListener('click',(e)=>{
-      const divInfo=this.shadowRoot.querySelector('.info')
-      divInfo.innerHTML=''
-      const produdiv = document.createElement('produ-div')
+    });
+    const btnproducto = this.shadowRoot.querySelector(".producto");
+    btnproducto.addEventListener("click", (e) => {
+      const divInfo = this.shadowRoot.querySelector(".info");
+      divInfo.innerHTML = "";
+      const produdiv = document.createElement("produ-div");
       divInfo.appendChild(produdiv);
       customElements.define("produ-div", producto);
-  });
-  const btnhome =this.shadowRoot.querySelector('.home')
-      btnhome.addEventListener('click',(e)=>{
-      const divInfo=this.shadowRoot.querySelector('.info')
-      divInfo.innerHTML=''
-      const produdiv = document.createElement('home-component')
+    });
+    const btnhome = this.shadowRoot.querySelector(".home");
+    btnhome.addEventListener("click", (e) => {
+      const divInfo = this.shadowRoot.querySelector(".info");
+      divInfo.innerHTML = "";
+      const produdiv = document.createElement("home-component");
       divInfo.appendChild(produdiv);
       customElements.define("home-component", HomeComponent);
-  });
+    });
   }
 }
-  
-
-
-
