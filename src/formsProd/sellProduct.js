@@ -5,7 +5,9 @@ export class vender extends LitElement{
     static properties={
         infoVenta:{},
         producto:{type:Array},
-        cont:{}
+        cont:{},
+        ids:{type:Array},
+        datos:{type:Array}
 
     }
     constructor(){
@@ -18,6 +20,8 @@ export class vender extends LitElement{
         this.producto=[]
         this._bindListeners()
         this.cont=0
+        this.ids=[]
+        this.datos=[]
     }
     _bindListeners() {
         this._guardarClickHandler = this._guardarClickHandler.bind(this);
@@ -122,17 +126,93 @@ export class vender extends LitElement{
         if (this.data==undefined){
             alert('Producto no se encuentra en registrado')
         }else if(this.data.idProducto==idProducto){
-            const costo=this.data.costoTotal
-            const nombre=this.data.nombre
-            this.producto[this.cont]=venta
-            this.producto[this.cont].valor=costo
-            this.producto[this.cont].producto=nombre
-            this.cont+=1
-            this.infoVenta.nroLote=nroLote
-            this.clearFormFields()
+            
+            let bandera = true;
+            const promises = this.data.materiales.map(async (element) => {
+            console.log(element);
+            try {
+                const response = await fetch('https://6659f969de346625136e9f20.mockapi.io/MateriaPrima');
+                
+                // Verificar si la solicitud fue exitosa
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                
+                // Trabajar con los datos recibidos
+                function buscarProductoPorId(id) {
+                return data.find(producto => Object.values(producto).includes(id));
+                }
+                this.data = buscarProductoPorId(element.idMateria);
+            } catch (error) {
+                console.error('Fetch error:', error);
+            }
+            
+            console.log(this.data);
+            const stock = this.data.cantidadEnStock;
+            console.log(stock);
+            const can = element.Cantidad;
+            console.log(can);
+            const producto = cantidad * can;
+            console.log(producto);
+            const resta=stock - producto
+            if (resta > 0) {
+                console.log('bien');
+                this.data.cantidadEnStock=this.data.cantidadEnStock-producto
+                this.ids.push(this.data.id)
+                this.datos.push(this.data)
+                console.log(this.ids)
+            } else {
+                alert(`Stock insuficiente agrega mas ${this.data.nombre}`);
+                bandera = false;
+            }
+            });
+
+            // Esperar a que todas las promesas se resuelvan
+            Promise.all(promises).then(() => {
+                console.log(bandera)
+            if (bandera === true) {
+                console.log('normal');
+                const costo = this.data.costoTotal;
+                const nombre = this.data.nombre;
+                this.producto[this.cont] = venta;
+                this.producto[this.cont].valor = costo;
+                this.producto[this.cont].producto = nombre;
+                this.cont += 1;
+                this.infoVenta.nroLote = nroLote;
+                this.ids.forEach((element,index)=>{
+                    this.actualizar(element,this.datos[index])
+                })
+                
+                this.clearFormFields();
+            } else {
+                console.log('mal');
+            }
+            });
+
+                
         }else{
             alert('Ingrese un id')
         }
+
     }
+    async actualizar(id, updatedItem) {
+        try {
+          const response = await fetch(`https://6659f969de346625136e9f20.mockapi.io/MateriaPrima/${id}`, { 
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedItem)
+          });
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          this.editItem = null; 
+          this.traerData(); 
+        } catch (error) {
+          console.error('Error updating item:', error);
+        }
+      }
     
 }
