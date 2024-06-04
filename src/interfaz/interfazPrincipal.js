@@ -83,29 +83,20 @@ export class Interfaz extends LitElement {
                         </span>
                     </a>
                 </li>
-            <ul class="logout">
-
-
-                <li>
-                   <a class="salir" href="#">
-                         <i class="fa fa-power-off fa-2x"><img class="img" src="img/out.png" alt=""></i>
-                        <span class="nav-text">
-                            Logout
-                        </span>
-                    </a>
-                </li>  
             </ul>
         </nav>
         <hr>
         </div>
         <div class="info">
-         
+        <home-component>
+        </home-component>
         </div>
       </div>
     `;
   }
   updated() {
     localStorage.clear()
+    customElements.define("home-component", HomeComponent);
     const btnLlamar = this.shadowRoot.querySelector(".llamar");
     btnLlamar.addEventListener("click", (e) => {
       const divInfo = this.shadowRoot.querySelector(".info");

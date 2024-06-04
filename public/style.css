@@ -30,7 +30,7 @@ h1 {
   font-family: "Mochiy Pop One", sans-serif;
 }
 strong {
-  color: #eef7ff;
+  color: #000000;
   /* border: 1px solid red; */
 }
 .logoImg {
@@ -51,6 +51,7 @@ strong {
   flex-direction: column;
 }
 .buzo {
+  color: white;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
 }
@@ -308,4 +309,25 @@ nav.main-menu li.active > a,
     justify-content: center;
     flex-direction: column;
   }
+  .navbar{
+    img{
+      width: 30%;
+      height: auto;
+    }
+  }
+  
+}
+
+@media (max-width: 1340px) {
+  .div-ph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .info {
+    padding-top: 168px;
+    padding-left: 40px;
+  }
+
 }

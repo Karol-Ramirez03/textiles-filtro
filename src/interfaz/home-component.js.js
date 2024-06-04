@@ -62,39 +62,31 @@ export class HomeComponent extends LitElement {
     .button3:hover img {
       transform: scale(1.5);
     }
-    @keyframes rotate1 {
-      0% {
-        transform: translate(-50%, -50%) rotate(0deg) translateX(50px);
+    @media only screen and (max-width: 600px) {
+      .div-ph {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
       }
-      100% {
-        transform: translate(-50%, -50%) rotate(360deg) translateX(50px);
+      .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        img{
+          width: 90%;
+        }
       }
+      .button1,
+      .button2,
+      .button3 {
+          position: relative;
+          /* Mueve los botones hacia abajo */
+         
+        }
     }
-    @keyframes rotate2 {
-      0% {
-        transform: translate(-50%, -50%) rotate(0deg) translateX(50px);
-      }
-      100% {
-        transform: translate(-50%, -50%) rotate(-360deg) translateX(50px);
-      }
-    }
-    @keyframes rotate3 {
-      0% {
-        transform: translate(-50%, -50%) rotate(0deg) translateX(50px);
-      }
-      100% {
-        transform: translate(-50%, -50%) rotate(360deg) translateX(50px);
-      }
-    }
-    .button1 {
-      animation: rotate1 4s linear infinite;
-    }
-    .button2 {
-      animation: rotate2 5s linear infinite;
-    }
-    .button3 {
-      animation: rotate3 6s linear infinite;
-    }
+    
   `;
 
   handleClick() {
@@ -132,4 +124,4 @@ export class HomeComponent extends LitElement {
   }
 }
 
-customElements.define("home-component", HomeComponent);
+
