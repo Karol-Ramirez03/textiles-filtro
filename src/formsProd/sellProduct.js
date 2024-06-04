@@ -38,7 +38,7 @@ export class vender extends LitElement{
                     <label for="cost-product" class="form-label">Ventas Por Lotes</label>
             </div>
             <div class="materiales-product">
-                <form class="form-data">
+                <form style="color:white;" class="form-data">
                     <div class="row d-flex material align-items-center">
                         <div class="col-md-4">
                             <label for="idProducto" class="form-label">Id Del Producto</label>

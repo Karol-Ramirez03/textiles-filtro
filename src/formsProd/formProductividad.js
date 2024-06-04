@@ -30,7 +30,7 @@ export class costosproductividad extends LitElement {
               <div class="card-body d-flex justify-content-between">
                 <h5 class="card-title">Registro de productividad</h5>
               </div>
-                <form class="row g-3 divcostos" id="frmproductividad">
+                <form style="color:white;" class="row g-3 divcostos" id="frmproductividad">
                     <div class="col-md-8">
                         <label for="productosterminados" class="form-label">porfavor ingresa los productos defectuosos</label>
                         <input type="number" class="form-control" name="productosterminados" id="productosterminados">

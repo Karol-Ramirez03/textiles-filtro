@@ -15,7 +15,7 @@ export class HomeComponent extends LitElement {
       flex-direction: column;
     }
     .div-inicio {
-      width: 100%;
+      width: 70%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -41,7 +41,7 @@ export class HomeComponent extends LitElement {
     .button2,
     .button3 {
       position: absolute;
-      top: 90%;
+      top: 120%; /* Mueve los botones hacia abajo */
       left: 50%;
       transform: translate(-50%, -50%);
       border: none;
@@ -60,7 +60,7 @@ export class HomeComponent extends LitElement {
     .button1:hover img,
     .button2:hover img,
     .button3:hover img {
-      transform: scale(2);
+      transform: scale(1.5);
     }
     @keyframes rotate1 {
       0% {
