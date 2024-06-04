@@ -129,7 +129,7 @@ export class producto extends LitElement{
         if (this.data==undefined){
             alert('Material no se encuentra en inventario')
         }else if(this.data.idMateriaPrima==idMateria){
-            const costo=this.data.costoPorunidad
+            const costo=this.data.costoPorUnidad
             const precio=costo*Cantidad
             this.mat[this.cont]=producto
             this.mat[this.cont].costo=precio
