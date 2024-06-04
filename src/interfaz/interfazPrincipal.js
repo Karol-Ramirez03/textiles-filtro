@@ -85,7 +85,7 @@ export class Interfaz extends LitElement {
             <ul class="logout">
 
                 <li>
-                   <a href="#">
+                   <a class="salir" href="#">
                          <i class="fa fa-power-off fa-2x"><img class="img" src="./public/img/out.png" alt=""></i>
                         <span class="nav-text">
                             Logout

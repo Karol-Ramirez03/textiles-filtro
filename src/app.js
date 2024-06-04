@@ -21,10 +21,10 @@ export class inicio extends LitElement {
         <div
           class="rosado div-inicio d-flex align-items-center justify-content-end flex-column text-black"
         >
-          <img class="logoImg" src="./public/img/logo.png" alt="" />
           <h1>Bienvenidos a Confecciones pepita</h1>
+          <img class="logoImg" src="./public/img/logo.png" alt="" />
           <br />
-          <button class="inicio btn btn-secondary ">Comenzar</button>
+          <button class="inicio btn amarillo "><strong class="second">Comenzar</strong></button>
         </div>
       </div>
       <div-inicio></div-inicio>
