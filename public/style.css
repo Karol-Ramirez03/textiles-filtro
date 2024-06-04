@@ -318,7 +318,7 @@ nav.main-menu li.active > a,
   
 }
 
-@media (max-width: 1340px) {
+@media (max-width: 1580px) {
   .div-ph {
     display: flex;
     align-items: center;
@@ -327,7 +327,7 @@ nav.main-menu li.active > a,
   }
   .info {
     padding-top: 168px;
-    padding-left: 40px;
+    padding-left: 35px;
   }
 
 }

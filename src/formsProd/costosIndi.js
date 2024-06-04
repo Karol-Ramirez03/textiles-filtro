@@ -5,7 +5,22 @@ export class CostosForm extends LitElement {
   static styles = css`
     @import "node_modules/bootstrap/dist/css/bootstrap.min.css";
   `;
-
+  static styles = css`
+  :host {
+    width: 80vw;
+  }
+  .card-costo {
+    margin-left: 10%;
+    width: 300%;
+  }
+  @media (max-width: 580px) {
+    .card-costo {
+      padding-top: 168px;
+      width: 300%;
+    }
+  
+  }
+`;
   constructor() {
     super();
     this.uniqueId = 0;

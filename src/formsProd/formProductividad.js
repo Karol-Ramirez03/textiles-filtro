@@ -31,7 +31,7 @@ export class costosproductividad extends LitElement {
               </div>
                 <form style="color:white;" class="row g-3 divcostos" id="frmproductividad">
                     <div class="col-md-8">
-                        <label for="productosterminados" class="form-label">porfavor ingresa los productos defectuosos</label>
+                        <label for="productosterminados" class="form-label text-black">    porfavor ingresa los productos defectuosos</label>
                         <input type="number" class="form-control" name="productosterminados" id="productosterminados">
                     </div>
                   <div class="col-12">

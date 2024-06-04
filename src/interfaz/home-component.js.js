@@ -30,7 +30,7 @@ export class HomeComponent extends LitElement {
       gap: 6rem; /* Incrementado el gap para más separación */
       justify-content: center;
       align-items: flex-start; /* Mueve los elementos hacia arriba */
-      margin-top: 2rem; /* Espacio superior para mover los elementos hacia arriba */
+       /* Espacio superior para mover los elementos hacia arriba */
     }
     .button-wrapper {
       position: relative;
@@ -62,7 +62,7 @@ export class HomeComponent extends LitElement {
     .button3:hover img {
       transform: scale(1.5);
     }
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 700px) {
       .div-ph {
         display: flex;
         align-items: center;
