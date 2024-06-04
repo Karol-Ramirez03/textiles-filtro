@@ -42,7 +42,7 @@ export class vender extends LitElement{
                         </div>
                         <div class="col-md-2">
                             <label for="Cantidad" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" name="Cantidad" id="cantidad">
+                            <input type="number" class="form-control" name="cantidad" id="cantidad">
                         </div>
                         <div class="col-md-3">
                             <label for="nroLote" class="form-label">Numero de lote</label>
@@ -78,6 +78,8 @@ export class vender extends LitElement{
             suma+=valor
         }
         this.infoVenta.valorLote=suma
+        localStorage.setItem('costoMateriaPrima', JSON.stringify(this.infoVenta))
+
         console.log(this.infoVenta)
             // hacer algo para almacenar
 
@@ -98,7 +100,7 @@ export class vender extends LitElement{
         const form=this.shadowRoot.querySelector('.form-data')
         const  datos= Object.fromEntries(new FormData(form).entries())
         const  venta= JSON.parse(JSON.stringify(datos));
-        const {idProducto,Cantidad,nroLote}=venta
+        const {idProducto,cantidad,nroLote}=venta
         
         try {
             const response = await fetch('https://6659f969de346625136e9f20.mockapi.io/productos');
@@ -121,9 +123,10 @@ export class vender extends LitElement{
             alert('Producto no se encuentra en registrado')
         }else if(this.data.idProducto==idProducto){
             const costo=this.data.costoTotal
-            const precio=costo*Cantidad
+            const nombre=this.data.nombre
             this.producto[this.cont]=venta
-            this.producto[this.cont].costo=precio
+            this.producto[this.cont].valor=costo
+            this.producto[this.cont].producto=nombre
             this.cont+=1
             this.infoVenta.nroLote=nroLote
             this.clearFormFields()

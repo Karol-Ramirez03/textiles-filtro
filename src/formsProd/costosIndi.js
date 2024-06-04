@@ -41,15 +41,6 @@ export class CostosForm extends LitElement {
     `;
   }
   updated(){
-    const btnGuardar=this.shadowRoot.querySelector('.guarda')
-    btnGuardar.addEventListener('click',()=>{
-
-      const divInfo = this.shadowRoot.querySelector(".container");
-      divInfo.innerHTML = "";
-      const productividaddiv = document.createElement("productividad-div");
-      divInfo.appendChild(productividaddiv);
-      customElements.define("productividad-div", costosproductividad);
-    })
   }
   addCostField() {
     this.uniqueId += 1;
@@ -109,7 +100,9 @@ export class CostosForm extends LitElement {
         descripcion:costos,
         costoTotal:sumacostos
     }
-    localStorage.setItem('costoIndirectoTotal',sumacostos)
+   
+    localStorage.setItem('costoIndirectoTotal', JSON.stringify(costoVarios))
+
     try {
         const response = await fetch('https://6659f969de346625136e9f20.mockapi.io//costos', {
           method: 'POST',
@@ -128,6 +121,11 @@ export class CostosForm extends LitElement {
       } catch (error) {
         console.error('Error al enviar los datos:', error);
       }
+      const divInfo = this.shadowRoot.querySelector(".container");
+      divInfo.innerHTML = "";
+      const productividaddiv = document.createElement("productividad-div");
+      divInfo.appendChild(productividaddiv);
+      customElements.define("productividad-div", costosproductividad);
   }
   
 }

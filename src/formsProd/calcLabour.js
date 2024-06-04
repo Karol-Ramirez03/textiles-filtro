@@ -9,12 +9,12 @@ export class manoDeObra extends LitElement{
     constructor(){
         super();
         this.manoObra={
-            nroEmpleados:"",
-            totalHoras:'',
-            SalarioBase:"",
+            empleados:"",
+            horas_trabajadas:'',
+            salario_base:"",
             beneficios:"",
             prestaciones:'',
-            costosIndirectos:""
+            costos_indirectos:""
         }
     }
     render(){
@@ -67,19 +67,14 @@ export class manoDeObra extends LitElement{
             const  datosMano= JSON.parse(JSON.stringify(datos));
             const {nroEmpleados,totalHoras,SalarioBase,beneficios,prestaciones,costosIndirecto}=datosMano
             console.log(datosMano)
-            this.manoObra.nroEmpleados=nroEmpleados
-            this.manoObra.totalHoras=totalHoras
-            this.manoObra.SalarioBase=SalarioBase
+            this.manoObra.empleados=nroEmpleados
+            this.manoObra.horas_trabajadas=totalHoras
+            this.manoObra.salario_base=SalarioBase
             this.manoObra.beneficios=beneficios
             this.manoObra.prestaciones=prestaciones
-            this.manoObra.costosIndirectos=costosIndirecto
+            this.manoObra.costos_indirectos=costosIndirecto
             console.log(this.manoObra)
-            localStorage.setItem('nroEmpleados',nroEmpleados)
-            localStorage.setItem('totalHoras',totalHoras)
-            localStorage.setItem('SalarioBase',SalarioBase)
-            localStorage.setItem('beneficios',beneficios)
-            localStorage.setItem('prestaciones',prestaciones)
-            localStorage.setItem('costosIndirectos',costosIndirecto)
+            localStorage.setItem('manoObra', JSON.stringify(this.manoObra))
             const divInfo = this.shadowRoot.querySelector(".calcMano");
             divInfo.innerHTML = "";
             const costdiv = document.createElement("costo-div");

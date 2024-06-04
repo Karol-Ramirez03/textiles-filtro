@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { cargarDatos } from '../mockapi/mockapiData';
 
 export class costosproductividad extends LitElement {
   static styles = css`
@@ -7,6 +8,12 @@ export class costosproductividad extends LitElement {
 
   constructor() {
     super();
+    this.inform={
+      manoDeObra: "",
+      costosIndirectos: "",
+      materiaPrima: "",
+      productividad: "5"
+    }
   }
 
   render() {
@@ -48,6 +55,27 @@ export class costosproductividad extends LitElement {
         const formdata = new  FormData(formulario)
         const defectuosos = formdata.get('productosterminados') 
         console.log(defectuosos)
+
+
+
+        //traer datos mandar mockapi
+        const costosindi =localStorage.getItem("costoIndirectoTotal")
+        const dataindi=JSON.parse(costosindi)
+        console.log(dataindi)
+        const manoObra =localStorage.getItem("manoObra")
+        const dataMAno=JSON.parse(manoObra)
+        console.log(dataMAno)
+        const materiaPrima =localStorage.getItem("costoMateriaPrima")
+        const dataMateria=JSON.parse(materiaPrima)
+        console.log(dataMateria.productos)
+        
+      this.inform.manoDeObra=dataMAno
+      this.inform.costosIndirectos=dataindi
+      this.inform.materiaPrima=dataMateria.productos
+      this.inform.productividad=defectuosos
+      cargarDatos('https://6659f969de346625136e9f20.mockapi.io/informe',this.inform)
+
+        
     })
 
   }
