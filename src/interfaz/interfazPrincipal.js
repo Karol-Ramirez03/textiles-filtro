@@ -25,7 +25,7 @@ export class Interfaz extends LitElement {
       </style>
       <nav class="navbar">
         <div class="container-fluid">
-          <div class="d-flex flex-column align-items-center justify-content-center">
+          <div class="d-flex navr flex-column align-items-center justify-content-center">
             <a id="nameLogo" class="navbar-brand">Confecciones Pepita</a>
             <img class="logo" src="public/img/logo.png" alt="">
           </div>

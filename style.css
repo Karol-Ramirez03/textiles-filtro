@@ -18,8 +18,18 @@ h1 {
 }
 strong {
   color: #eef7ff;
- 
-    
+}
+.logo{
+  width: 15%;
+  padding: 0%;
+  margin-top: 0%;
+}
+img,.logo{
+  width: 20%;
+}
+.navr{
+  display: flex;
+  flex-direction: column;
 }
 .buzo{
     text-shadow:
@@ -32,9 +42,10 @@ strong {
   color: #000000;
 }
 .amarillo{
-  background-image: linear-gradient(to left, #FFFF80, #feefad);
+  background-image: linear-gradient(to left, #FFDB00, #feefad);
   border-radius: 10px;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 9%;
 }
 .amarillo:hover {
   transform: scale(1.2);
@@ -45,7 +56,7 @@ strong {
   transition: 0.5s ease;
 }
 .out {
-  background-image: linear-gradient(to left, #FFFF80, #feefad);
+  background-image: linear-gradient(to left, #FFDB00, #feefad);
   border-radius: 10px;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
@@ -64,6 +75,8 @@ span {
 a {
   font-family: "Mochiy Pop One", sans-serif;
   font-size: 1.5rem;
+  margin: 0;
+  padding: 0% ;
 }
 .addProduct {
   margin-top: 2%;
