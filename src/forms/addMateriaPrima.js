@@ -29,7 +29,7 @@ export class materiaPrima extends LitElement{
        return html`
         <style>
             @import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
-            @import "./style.css";
+            @import "./public/style.css";
         </style>
         <form  class="form-data addMateriaPrima row g-3 width:100vh" >
         <div class="col-md-4">

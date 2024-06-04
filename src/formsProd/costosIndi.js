@@ -15,7 +15,7 @@ export class CostosForm extends LitElement {
     return html`
     <style>
         @import "node_modules/bootstrap/dist/css/bootstrap.min.css";
-        @import "./style.css";
+        @import "./public/style.css";
     </style>
       <div class="container mt-5 card-costo">
         <div class="row">

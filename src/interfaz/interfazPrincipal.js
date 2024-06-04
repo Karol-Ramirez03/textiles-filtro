@@ -21,7 +21,7 @@ export class Interfaz extends LitElement {
     return html`
       <style>
         @import "./node_modules/bootstrap/dist/css/bootstrap.css";
-        @import "./style.css";
+        @import "./public/style.css";
       </style>
       <nav class="navbar">
         <div class="container-fluid">

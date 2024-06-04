@@ -31,7 +31,7 @@ export class vender extends LitElement{
         return html`
         <style>
             @import "node_modules/bootstrap/dist/css/bootstrap.min.css";
-            @import "./style.css";
+            @import "./public/style.css";
         </style>
         <div class="mate d-flex flex-column">
             <div class="materiales col-md-4 align-self-center">
