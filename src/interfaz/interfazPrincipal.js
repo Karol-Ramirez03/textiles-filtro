@@ -30,7 +30,7 @@ export class Interfaz extends LitElement {
             <img class="logo" src="public/img/logo.png" alt="">
           </div>
           <form class="d-flex search" role="search">
-            <button class="btn btn-dark" type="submit">Salir</button>
+            <button class="btn out" type="submit">Salir</button>
           </form>
         </div>
       </nav>
@@ -83,7 +83,7 @@ export class Interfaz extends LitElement {
                     </a>
                 </li>
             <ul class="logout">
-            
+
                 <li>
                    <a href="#">
                          <i class="fa fa-power-off fa-2x"><img class="img" src="./public/img/out.png" alt=""></i>
