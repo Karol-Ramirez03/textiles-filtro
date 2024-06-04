@@ -29,9 +29,9 @@ export class materiaPrima extends LitElement{
        return html`
         <style>
             @import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
-            @import "./style.css";
+            @import "./public/style.css";
         </style>
-        <form  class="form-data addMatriaPrima row g-3 width:100vh" >
+        <form  class="form-data addMateriaPrima row g-3 width:100vh" >
         <div class="col-md-4">
           <label for="id-product" class="form-label">ID</label>
           <input type="text" name="idMateriaPrima" class="in form-control" id="id-product" placeholder="Ingrese el Id" >
@@ -59,7 +59,7 @@ export class materiaPrima extends LitElement{
         </div>
         <div class="col-md-4">
           <label for="cost-product" class="form-label">costo c/u</label>
-          <input type="number" name="costoPorunidad" class="in form-control" id="cost-product">
+          <input type="number" name="costoPorUnidad" class="in form-control" id="cost-product">
         </div>
         <div class="col-md-4">
           <label for="unidad-product" class="form-label">Unidad de medida</label>
@@ -100,7 +100,7 @@ export class materiaPrima extends LitElement{
             const  date= this.shadowRoot.querySelectorAll('input[type="date"]')
             const  datos= Object.fromEntries(new FormData(form).entries())
             const  producto= JSON.parse(JSON.stringify(datos));
-            const {idMateriaPrima,nombre,descripcion,categoria,proveedor,costoPorunidad,unidadDeMedida,cantidadEnStock,fechaDeAdquisicion,ubicacionEnAlmacen,notasAdicionales}=producto
+            const {idMateriaPrima,nombre,descripcion,categoria,proveedor,costoPorUnidad,unidadDeMedida,cantidadEnStock,fechaDeAdquisicion,ubicacionEnAlmacen,notasAdicionales}=producto
             date.forEach(( element,index )=>{
               this.fecha[index]=element.value
             })
@@ -110,7 +110,7 @@ export class materiaPrima extends LitElement{
             this.product.descripcion=descripcion
             this.product.categoria=categoria
             this.product.proveedor=proveedor
-            this.product.costoPorunidad=costoPorunidad
+            this.product.costoPorUnidad=costoPorUnidad
             this.product.unidadDeMedida=unidadDeMedida
             this.product.cantidadEnStock=cantidadEnStock
             this.product.fechaDeAdquisicion=this.fecha[0]
@@ -119,7 +119,8 @@ export class materiaPrima extends LitElement{
             this.product.notasAdicionales=notasAdicionales
             
             console.log(this.product)
-            console.log({idMateriaPrima,nombre,descripcion,categoria,proveedor,costoPorunidad,unidadDeMedida,cantidadEnStock,fechaDeAdquisicion,ubicacionEnAlmacen,notasAdicionales})
+            console.log({idMateriaPrima,nombre,descripcion,categoria,proveedor,costoPorUnidad,unidadDeMedida,cantidadEnStock,fechaDeAdquisicion,ubicacionEnAlmacen,notasAdicionales})
+            this.clearFormFields()
 
           const response=  fetch('https://6659f969de346625136e9f20.mockapi.io/MateriaPrima', {
               method: 'POST',
@@ -141,5 +142,13 @@ export class materiaPrima extends LitElement{
 
         })
     }
+     // Función para limpiar los campos del formulario
+     clearFormFields() {
+      const form= this.shadowRoot.querySelector('.form-data');
+      const inputs = form.querySelectorAll('input[type="text"], input[type="number"], textarea, select,input[type="date"]');
+      inputs.forEach(input => {
+          input.value = ''; // Restablecer el valor a vacío
+      });
+  }
    
 };

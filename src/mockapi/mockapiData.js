@@ -18,7 +18,7 @@ export const cargarDatos=(url,datos)=>{
           });
 }
 
-export const llamarDatos=(url)=>{
+export const llamarDatos=(url,)=>{
     // Hacer la solicitud GET a la API
     fetch(url)
     .then(response => {
@@ -32,6 +32,7 @@ export const llamarDatos=(url)=>{
     .then(data => {
     // Trabajar con los datos recibidos
     console.log(data); // Aquí puedes hacer lo que necesites con los datos
+    
     })
     .catch(error => {
     // Capturar y manejar cualquier error que ocurra durante la solicitud

@@ -1,10 +1,10 @@
 import { LitElement, html } from "lit";
 import { materiaPrima } from "../forms/addMateriaPrima.js";
-import { costosproductividad } from "../formsProd/formProductividad.js";
 import { CostosForm } from "../formsProd/costosIndi.js";
 import { DataDisplay } from "../reportes/datos.js";
 import { producto } from "../forms/addProduct.js";
 import { HomeComponent } from "./home-component.js.js";
+import { vender } from "../formsProd/sellProduct.js"; 
 
 export class Interfaz extends LitElement {
   static properties = {
@@ -21,7 +21,7 @@ export class Interfaz extends LitElement {
     return html`
       <style>
         @import "./node_modules/bootstrap/dist/css/bootstrap.css";
-        @import "./style.css";
+        @import "./public/style.css";
       </style>
       <nav class="navbar">
         <div class="container-fluid">
@@ -103,6 +103,7 @@ export class Interfaz extends LitElement {
     `;
   }
   updated() {
+    localStorage.clear()
     const btnLlamar = this.shadowRoot.querySelector(".llamar");
     btnLlamar.addEventListener("click", (e) => {
       const divInfo = this.shadowRoot.querySelector(".info");
@@ -117,7 +118,7 @@ export class Interfaz extends LitElement {
       divInfo.innerHTML = "";
       const costdiv = document.createElement("cost-div");
       divInfo.appendChild(costdiv);
-      customElements.define("cost-div", CostosForm);
+      customElements.define("cost-div", vender);
     });
     const btninforme = this.shadowRoot.querySelector(".informes");
     btninforme.addEventListener("click", (e) => {

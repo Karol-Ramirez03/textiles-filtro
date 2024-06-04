@@ -15,7 +15,7 @@ export class inicio extends LitElement {
     return html`
       <style>
         @import "./node_modules/bootstrap/dist/css/bootstrap.css";
-        @import "./style.css";
+        @import "./public/style.css";
       </style>
       <div class="init">
         <div
