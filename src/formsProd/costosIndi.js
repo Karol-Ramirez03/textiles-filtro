@@ -52,7 +52,7 @@ export class CostosForm extends LitElement {
     nuevocuadro.id = `costo${uniqueId}`;
     
     nuevocuadro.innerHTML = `
-      <div class="col-md-8">
+      <div style="color:white;" class="col-md-8">
         <label for="tipocosto${uniqueId}" class="form-label">Describe los costos indirectos</label>
         <input type="text" class="form-control" name="tipocosto${uniqueId}" id="tipocosto${uniqueId}">
       </div>

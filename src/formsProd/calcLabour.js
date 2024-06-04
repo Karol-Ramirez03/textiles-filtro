@@ -23,7 +23,7 @@ export class manoDeObra extends LitElement{
             @import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
             @import "./public/style.css";
         </style>
-        <form  class="form-data calcMano row g-3 d-flex justify-content-center align-items-center" >
+        <form  style="color:white;" class="form-data calcMano row g-3 d-flex justify-content-center align-items-center" >
         <div class="row">
             <div class="col-md-6">
                 <label for="empleados" class="form-label">Cantidan de empledos</label>

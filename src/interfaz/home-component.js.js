@@ -15,7 +15,7 @@ export class HomeComponent extends LitElement {
       flex-direction: column;
     }
     .div-inicio {
-      width: 100%;
+      width: 70%;
       display: flex;
       align-items: center;
       justify-content: center;

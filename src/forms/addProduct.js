@@ -38,7 +38,7 @@ export class producto extends LitElement{
             @import "./public/style.css";
         </style>
         <div class="pro d-flex justify-content-center align-items-center flex-column">
-            <form  class="form-data addProduct row g-3" >
+            <form  style="color:white;" class="form-data addProduct row g-3" >
             <div class="d-flex justify-content-center">
                 <div class="info-produc">
                     <div class="col-md-12">
@@ -47,15 +47,15 @@ export class producto extends LitElement{
                     </div>
                     <div class="col-md-12">
                         <label for="name" class="form-label">Nombre</label>
-                        <input type="text" name="nombre" class="in form-control" id="name" >
+                        <input type="text" name="nombre" class="in form-control" id="name" placeholder="Nombre"  >
                     </div>
                     <div class="col-md-12">
                         <label for="horas">Horas Requeridas en su elaboracion</label>
-                        <input type="number" class="in form-control" name="horasDeElaboracion" placeholder="" id="horas">
+                        <input type="number" class="in form-control" name="horasDeElaboracion" placeholder="Horas" id="horas">
                     </div>
                     <div class="col-md-12">
                         <label for="trabajadores" class="form-label">Trabajadores requeridos</label>
-                        <input type="number" name="personalRequrido" class="in form-control" id="trabajadores">
+                        <input type="number" name="personalRequrido" class="in form-control" id="trabajadores" placeholder="Trabajadores" >
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@ export class producto extends LitElement{
                 <form class="mat-form">
                     <div class="row d-flex material align-items-center">
                         <div class="col-md-6">
-                            <label for="idMateria" class="form-label">Id De la materia prima</label>
+                            <label for="idMateria" class="form-label"placeholder="Id Materia prima" >Id De la materia prima</label>
                             <input type="text" class="form-control" name="idMateria" id="idMateria">
                         </div>
                         <div class="col-md-2">
