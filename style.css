@@ -16,6 +16,9 @@ h1 {
 strong {
   color: #eef7ff;
 }
+.botones{
+  margin-left: 10%;
+}
 .out {
   background-image: linear-gradient(to left, #fdde55, #feefad);
   border-radius: 10px;
@@ -40,11 +43,22 @@ a {
 .addProduct {
   margin-top: 2%;
 }
-.info-product {
-  width: 30vw;
+.addMateriaPrima{
+  margin-left: 6%;
+  width: 90%;
+}
+.pro{
+  margin-left: 100%;
+}
+.info-produc {
+  width: 20vw;
+}
+.materiales {
+  margin-top: 10%;
+  text-align: center;
 }
 .materiales-product {
-  width: 60vw;
+  width: 40vw;
 }
 .logoImg {
   width: 250px;
@@ -81,7 +95,16 @@ a {
 }
 .info {
   margin-left: 5.3%;
-  padding-top: 6%;
+  padding-top: 10%;
+}
+/* .mate{
+  margin-left: 30%;
+  margin-top: 20%;
+} */
+.calcMano{
+  margin-top: 7%;
+  width: 90%;
+  margin-left: 4%;
 }
 /* Boton add
 #allcostos {

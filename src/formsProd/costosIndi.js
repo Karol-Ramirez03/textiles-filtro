@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { costosproductividad } from './formProductividad';
 
 export class CostosForm extends LitElement {
   static styles = css`
@@ -28,7 +29,7 @@ export class CostosForm extends LitElement {
               </div>
                 <form class="row g-3 divcostos" id="frmcosto" @submit="${this.datoscostos}">
                   <div class="col-12">
-                    <button type="submit" class="btn btn-second" id="allcostos">Sign in</button>
+                    <button type="submit" class="guarda btn btn-warning" id="allcostos">Sign in</button>
                   </div>
                 </form>
               </div>
@@ -39,7 +40,17 @@ export class CostosForm extends LitElement {
       </div>
     `;
   }
+  updated(){
+    const btnGuardar=this.shadowRoot.querySelector('.guarda')
+    btnGuardar.addEventListener('click',()=>{
 
+      const divInfo = this.shadowRoot.querySelector(".container");
+      divInfo.innerHTML = "";
+      const productividaddiv = document.createElement("productividad-div");
+      divInfo.appendChild(productividaddiv);
+      customElements.define("productividad-div", costosproductividad);
+    })
+  }
   addCostField() {
     this.uniqueId += 1;
     const uniqueId = this.uniqueId;
@@ -98,6 +109,7 @@ export class CostosForm extends LitElement {
         descripcion:costos,
         costoTotal:sumacostos
     }
+    localStorage.setItem('costoIndirectoTotal',sumacostos)
     try {
         const response = await fetch('https://6659f969de346625136e9f20.mockapi.io//costos', {
           method: 'POST',
