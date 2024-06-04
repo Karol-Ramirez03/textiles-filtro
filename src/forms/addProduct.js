@@ -1,4 +1,5 @@
-import { LitElement, html } from "lit";
+import { LitElement, html } from "lit"
+import { cargarDatos,llamarDatos,actualizarData } from "../mockapi/mockapiData"
 
 
 
@@ -6,7 +7,7 @@ export class producto extends LitElement{
     static properties={
         condition:{},
         producto:{},
-        cont:{}
+        cont:{},
     }
     constructor(){
         super()
@@ -32,8 +33,10 @@ export class producto extends LitElement{
             @import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
             @import "./style.css";
         </style>
-        <form  class="form-data addProduct row g-3 d-flex justify-content-center" >
-        <div class="info-product">
+        
+        <form  class="form-data addProduct row g-3" >
+        <div class="d-flex justify-content-center">
+        <div class="info-produc">
             <div class="col-md-12">
                 <label for="id" class="form-label">ID</label>
                 <input type="text" name="idProducto" class="in form-control" id="id" placeholder="Ingrese el Id" >
@@ -44,7 +47,7 @@ export class producto extends LitElement{
             </div>
             <div class="col-md-12">
                 <label for="horas">Horas Requeridas en su elaboracion</label>
-                <input type="number" class="in form-control" name="horasDeElaboracion" placeholder="" id="horas"></input>
+                <input type="number" class="in form-control" name="horasDeElaboracion" placeholder="" id="horas">
             </div>
             <div class="col-md-12">
                 <label for="trabajadores" class="form-label">Trabajadores requeridos</label>
@@ -52,7 +55,7 @@ export class producto extends LitElement{
             </div>
             
         </div>
-        <div class="materiales d-flex flex-column">
+        <div class="materiale d-flex flex-column">
             <div class="col-md-4 align-self-center">
                 <label for="cost-product" class="form-label">Materiales</label>
                 <button class="agregar btn btn-primary" type="submit">+</button>
@@ -60,13 +63,17 @@ export class producto extends LitElement{
             <div class="materiales-product">
             </div>
         </div> 
-        </form>
-        <div class="col-12">
+        </div>
+        <div class="botones d-flex flex-column justify-content-center  gap-3">
+        <div class="col-4">
             <button  class="guardar btn btn-primary" type="submit">Cargar Producto</button>
         </div>
-        <div class="divEditar col-12">
+        <div class="divEditar col-4">
             <button  class="editar btn btn-warning" type="submit">Editar Producto</button>
         </div>
+        </div>
+        </form>
+        
         
         `
     }
@@ -119,37 +126,25 @@ export class producto extends LitElement{
         this.producto.nombre = nombre;
         this.producto.horasDeElaboracion = horasDeElaboracion;
         this.producto.personalRequrido = personalRequrido;
-        this.producto.materiales = material;
-        console.log(this.producto);
-        const response=  fetch('https://6659f969de346625136e9f20.mockapi.io/productos', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(this.producto)
-          })
-          
-          .then(response => response.json())
-          .then(data => {
-              console.log('Success:', data);
-              alert('Datos guardados exitosamente!');
-          })
-          .catch((error) => {
-              console.error('Error:', error);
-              alert('Hubo un error al guardar los datos.');
-          });
+        this.producto.materiales=material
+        // const materialesTemp = material;
+
+        cargarDatos('https://6659f969de346625136e9f20.mockapi.io/productos',this.producto)
+        
     }
     _quitarClickHandler(e){
         e.preventDefault();
         console.log(e.target.dataset.id)
         if (e.target.name=='quitar'){
             let id=e.target.dataset.id
+
             let divEliminar=this.shadowRoot.querySelector(`.material${id}`)
             divEliminar.parentNode.removeChild(divEliminar)
         }
     }
     _editarClickHandler(e){
         e.preventDefault();
-        
-    }
+        actualizarData('https://6659f969de346625136e9f20.mockapi.io/productos',1)
+        // llamarDatos('https://6659f969de346625136e9f20.mockapi.io/productos')
+            }
 }

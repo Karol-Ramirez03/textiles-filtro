@@ -139,8 +139,8 @@ export class Interfaz extends LitElement {
     btnhome.addEventListener("click", (e) => {
       const divInfo = this.shadowRoot.querySelector(".info");
       divInfo.innerHTML = "";
-      const produdiv = document.createElement("home-component");
-      divInfo.appendChild(produdiv);
+      const homediv = document.createElement("home-component");
+      divInfo.appendChild(homediv);
       customElements.define("home-component", HomeComponent);
     });
   }
