@@ -86,7 +86,7 @@ export class materiaPrima extends LitElement{
           <textarea class="in form-control" name="notasAdicionales" placeholder="Leave a comment here" id="notes-product" style="height: 100px"></textarea>
         </div>
         <div class="col-12">
-        <button class="rosado guardar btn btn-primary" type="submit" style="width: 20%; height: 100%;"><strong>
+        <button class="rosado guardar btn btn-primary" type="submit" style="width: 20%; height: 100%;"><strong class="buzo">
         HERE</strong></button>
         </div>
       </form>
