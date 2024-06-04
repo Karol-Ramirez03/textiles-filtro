@@ -5,36 +5,32 @@ export class HomeComponent extends LitElement {
     :host {
       display: block;
       text-align: center;
-      padding: 2rem;
-      width: 90%;
-
+      padding: 1rem;
+      width: 90vw;
     }
-    .btn {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .btn:hover {
-      background-color: #0056b3;
-    }
-    .div-inicio {
+    .div-ph {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      background-color: #000;
-      color: #fff;
-      padding: 2rem;
+    }
+    .div-inicio {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #fff9d0;
+      color: #151515;
+      padding: 1rem;
       border-radius: 5px;
     }
     .container {
       display: flex;
-      gap: 2rem;
+      gap: 6rem; /* Incrementado el gap para más separación */
       justify-content: center;
+      align-items: flex-start; /* Mueve los elementos hacia arriba */
+      margin-top: 2rem; /* Espacio superior para mover los elementos hacia arriba */
     }
     .button-wrapper {
       position: relative;
@@ -45,7 +41,7 @@ export class HomeComponent extends LitElement {
     .button2,
     .button3 {
       position: absolute;
-      top: 50%;
+      top: 90%;
       left: 50%;
       transform: translate(-50%, -50%);
       border: none;
@@ -64,7 +60,7 @@ export class HomeComponent extends LitElement {
     .button1:hover img,
     .button2:hover img,
     .button3:hover img {
-      transform: scale(1.1);
+      transform: scale(2);
     }
     @keyframes rotate1 {
       0% {
@@ -91,13 +87,13 @@ export class HomeComponent extends LitElement {
       }
     }
     .button1 {
-      animation: rotate1 1.5s linear infinite;
+      animation: rotate1 4s linear infinite;
     }
     .button2 {
-      animation: rotate2 2s linear infinite;
+      animation: rotate2 5s linear infinite;
     }
     .button3 {
-      animation: rotate3 2.5s linear infinite;
+      animation: rotate3 6s linear infinite;
     }
   `;
 
@@ -107,30 +103,31 @@ export class HomeComponent extends LitElement {
 
   render() {
     return html`
-      <div class="div-inicio">
-        <h1>Hola de vuelta</h1>
-        <p>HI.</p>
-        <button class="btn inicio" @click=${this.handleClick}>VAMOS</button>
-      </div>
-      <div class="container">
-        <div class="button-wrapper">
-          <button class="button1">
-            <img src="public/img/boton.png" alt="Button 1" />
-          </button>
+      <div class="div-ph">
+        <div class="div-inicio">
+          <h1><strong>Hola bienvenido de nuevo a</strong></h1>
+          <h2>CONFECCIONES PEPITA</h2>
         </div>
-        <div class="button-wrapper">
-          <button class="button2">
-            <img src="public/img/tela.png" alt="Button 2" />
-          </button>
-        </div>
-        <div class="button-wrapper">
-          <button class="button3">
-            <img src="public/img/cra.png" alt="Button 3" />
-          </button>
+        <div class="container">
+          <div class="button-wrapper">
+            <button class="button1">
+              <img src="public/img/boton.png" alt="Button 1" />
+            </button>
+          </div>
+          <div class="button-wrapper">
+            <button class="button2">
+              <img src="public/img/tela.png" alt="Button 2" />
+            </button>
+          </div>
+          <div class="button-wrapper">
+            <button class="button3">
+              <img src="public/img/cra.png" alt="Button 3" />
+            </button>
+          </div>
         </div>
       </div>
     `;
   }
 }
 
-
+customElements.define("home-component", HomeComponent);

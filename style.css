@@ -10,17 +10,45 @@ body {
   height: 100vh;
   margin: 0;
 }
+hi{
+  color: #000000;
+}
 h1 {
   font-family: "Mochiy Pop One", sans-serif;
 }
 strong {
   color: #eef7ff;
+ 
+    
+}
+.buzo{
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.second{
+  color: #000000;
+}
+.amarillo{
+  background-image: linear-gradient(to left, #FFFF80, #feefad);
+  border-radius: 10px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.amarillo:hover {
+  transform: scale(1.2);
+  transition: 0.5s ease;
+}
+.amarillo:not(:hover) {
+  transform: scale(1);
+  transition: 0.5s ease;
 }
 .botones{
   margin-left: 10%;
 }
 .out {
-  background-image: linear-gradient(to left, #fdde55, #feefad);
+  background-image: linear-gradient(to left, #FFFF80, #feefad);
   border-radius: 10px;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
@@ -59,17 +87,6 @@ a {
 }
 .materiales-product {
   width: 40vw;
-}
-.logoImg {
-  width: 250px;
-  margin-top: 100px;
-}
-.logo {
-  width: 70px;
-  margin-right: 20px;
-  padding: 0;
-  position: relative;
-  bottom: 25px;
 }
 .card-costo {
   margin-left: 10%;
