@@ -28,7 +28,7 @@ export class CostosForm extends LitElement {
               </div>
                 <form class="row g-3 divcostos" id="frmcosto" @submit="${this.datoscostos}">
                   <div class="col-12">
-                    <button type="submit" class="btn btn-primary" id="allcostos">Sign in</button>
+                    <button type="submit" class="btn btn-second" id="allcostos">Sign in</button>
                   </div>
                 </form>
               </div>

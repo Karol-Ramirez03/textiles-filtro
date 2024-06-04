@@ -31,7 +31,7 @@ export class materiaPrima extends LitElement{
             @import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
             @import "./style.css";
         </style>
-        <form  class="form-data addMatriaPrima row g-3" >
+        <form  class="form-data addMatriaPrima row g-3 width:100vh" >
         <div class="col-md-4">
           <label for="id-product" class="form-label">ID</label>
           <input type="text" name="idMateriaPrima" class="in form-control" id="id-product" placeholder="Ingrese el Id" >
@@ -86,7 +86,8 @@ export class materiaPrima extends LitElement{
           <textarea class="in form-control" name="notasAdicionales" placeholder="Leave a comment here" id="notes-product" style="height: 100px"></textarea>
         </div>
         <div class="col-12">
-          <button  class="rosado guardar btn btn-primary" type="submit">Submit form</button>
+        <button class="rosado guardar btn btn-primary" type="submit" style="width: 20%; height: 100%;"><strong>
+        HERE</strong></button>
         </div>
       </form>
       `;

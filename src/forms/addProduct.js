@@ -1,6 +1,8 @@
 import { LitElement, html } from "lit"
 import { cargarDatos,llamarDatos,actualizarData } from "../mockapi/mockapiData"
 
+
+
 export class producto extends LitElement{
     static properties={
         condition:{},
@@ -90,7 +92,6 @@ export class producto extends LitElement{
         e.preventDefault();
         this.cont += 1;
         const divMateriales = this.shadowRoot.querySelector('.materiales-product');
-        
         const div =`
         <div class="row justify-content-md-center material${this.cont}">
             <div class="col-md-8">
