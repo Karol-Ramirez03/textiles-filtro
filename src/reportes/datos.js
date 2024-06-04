@@ -205,9 +205,8 @@ export class DataDisplay extends LitElement {
      const sumaproducto = manoObraProducto+materiaPrimaProducto+costosProducto
 
       return html`
-      <style rel="stylesheet">
-        @import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
-      </style>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="bootstrap.min.css">
       <div class="card" >
       
         <h5 class="card-header">${item.id}</h5>

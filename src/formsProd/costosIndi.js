@@ -13,10 +13,8 @@ export class CostosForm extends LitElement {
 
   render() {
     return html`
-    <style>
-        @import "node_modules/bootstrap/dist/css/bootstrap.min.css";
-        @import "./public/style.css";
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
       <div class="container mt-5 card-costo">
         <div class="row">
           <div class="col"></div>

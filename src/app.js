@@ -13,10 +13,8 @@ export class inicio extends LitElement {
   }
   render() {
     return html`
-      <style>
-        @import "./node_modules/bootstrap/dist/css/bootstrap.css";
-        @import "./public/style.css";
-      </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
       <div class="init">
         <div
           class="rosado div-inicio d-flex align-items-center justify-content-end flex-column text-white"

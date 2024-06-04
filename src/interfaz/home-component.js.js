@@ -103,6 +103,8 @@ export class HomeComponent extends LitElement {
 
   render() {
     return html`
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
       <div class="div-ph">
         <div class="div-inicio">
           <h1><strong>Hola bienvenido de nuevo a</strong></h1>
@@ -111,17 +113,17 @@ export class HomeComponent extends LitElement {
         <div class="container">
           <div class="button-wrapper">
             <button class="button1">
-              <img src="public/img/boton.png" alt="Button 1" />
+              <img src="img/boton.png" alt="Button 1" />
             </button>
           </div>
           <div class="button-wrapper">
             <button class="button2">
-              <img src="public/img/tela.png" alt="Button 2" />
+              <img src="img/tela.png" alt="Button 2" />
             </button>
           </div>
           <div class="button-wrapper">
             <button class="button3">
-              <img src="public/img/cra.png" alt="Button 3" />
+              <img src="img/cra.png" alt="Button 3" />
             </button>
           </div>
         </div>

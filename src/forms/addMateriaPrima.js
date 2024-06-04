@@ -1,4 +1,5 @@
   import { LitElement, html } from "lit";
+  
 
 export class materiaPrima extends LitElement{
     
@@ -27,10 +28,8 @@ export class materiaPrima extends LitElement{
     }
     render(){
        return html`
-        <style>
-            @import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
-            @import "./public/style.css";
-        </style>
+       <link rel="stylesheet" href="style.css">
+       <link rel="stylesheet" href="bootstrap.min.css">
         <form style="color:white;" class="form-data addMateriaPrima row g-3 width:100vh" >
         <div class="col-md-4">
           <label for="id-product" class="form-label">ID</label>

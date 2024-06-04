@@ -19,10 +19,8 @@ export class Interfaz extends LitElement {
 
   render() {
     return html`
-      <style>
-        @import "./node_modules/bootstrap/dist/css/bootstrap.css";
-        @import "./public/style.css";
-      </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
       <nav class="navbar">
         <div class="container-fluid">
           <div class="d-flex navr flex-column align-items-center justify-content-center">
@@ -40,7 +38,7 @@ export class Interfaz extends LitElement {
             <ul>
                 <li class='home'>
                     <a  href="#">
-                        <i class=" fa fa-home fa-2x"><img class="img" src="./public/img/1home.png" alt=""></i>
+                        <i class=" fa fa-home fa-2x"><img class="img" src="img/1home.png" alt=""></i>
                         <span class="nav-text">
                            Home
                         </span>
@@ -49,7 +47,7 @@ export class Interfaz extends LitElement {
                 </li>
                 <li class="has-subnav">
                     <a class="llamar" href="#">
-                        <i class="fa fa-globe fa-2x"><img class="img" src="./public/img/2mp.png" alt=""></i>
+                        <i class="fa fa-globe fa-2x"><img class="img" src="img/2mp.png" alt=""></i>
                         <span class="nav-text">
                             Materia prima
                         </span>
@@ -58,7 +56,7 @@ export class Interfaz extends LitElement {
                 </li>
                 <li class='costo' class="has-subnav">
                     <a href="#">
-                       <i class="fa fa-comments fa-2x"><img class="img" src="./public/img/3cal.png" alt=""></i>
+                       <i class="fa fa-comments fa-2x"><img class="img" src="img/3cal.png" alt=""></i>
                         <span class="nav-text">
                             Cost Calculate
                         </span>
@@ -67,7 +65,7 @@ export class Interfaz extends LitElement {
                 </li>
                 <li class="informes">
                     <a href="#">
-                       <i class="fa fa-camera-retro fa-2x"><img class="img" src="./public/img/4info.png" alt=""></i>
+                       <i class="fa fa-camera-retro fa-2x"><img class="img" src="img/4info.png" alt=""></i>
                         <span class="nav-text">
                             Informs
                         </span>
@@ -76,7 +74,7 @@ export class Interfaz extends LitElement {
                 </li>
                 <li>
                     <a class="producto" href="#">
-                        <i class="fa fa-film fa-2x"><img class="img" src="./public/img/5prod.png" alt=""></i>
+                        <i class="fa fa-film fa-2x"><img class="img" src="img/5prod.png" alt=""></i>
                         <span class="nav-text">
                             productos
                         </span>
@@ -86,7 +84,7 @@ export class Interfaz extends LitElement {
 
                 <li>
                    <a class="salir" href="#">
-                         <i class="fa fa-power-off fa-2x"><img class="img" src="./public/img/out.png" alt=""></i>
+                         <i class="fa fa-power-off fa-2x"><img class="img" src="img/out.png" alt=""></i>
                         <span class="nav-text">
                             Logout
                         </span>

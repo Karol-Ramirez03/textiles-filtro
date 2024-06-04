@@ -19,10 +19,8 @@ export class manoDeObra extends LitElement{
     }
     render(){
         return html`
-        <style>
-            @import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
-            @import "./public/style.css";
-        </style>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="bootstrap.min.css">
         <form  style="color:white;" class="form-data calcMano row g-3 d-flex justify-content-center align-items-center" >
         <div class="row">
             <div class="col-md-6">

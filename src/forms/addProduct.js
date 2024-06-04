@@ -33,10 +33,8 @@ export class producto extends LitElement{
     }
     render(){
         return html`
-        <style>
-            @import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
-            @import "./public/style.css";
-        </style>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="bootstrap.min.css">
         <div class="pro d-flex justify-content-center align-items-center flex-column">
             <form  style="color:white;" class="form-data addProduct row g-3" >
             <div class="d-flex justify-content-center">

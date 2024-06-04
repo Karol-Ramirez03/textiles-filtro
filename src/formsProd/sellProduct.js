@@ -29,10 +29,8 @@ export class vender extends LitElement{
     }
     render(){
         return html`
-        <style>
-            @import "node_modules/bootstrap/dist/css/bootstrap.min.css";
-            @import "./public/style.css";
-        </style>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="bootstrap.min.css">
         <div class="mate d-flex flex-column">
             <div class="materiales col-md-4 align-self-center">
                     <label for="cost-product" class="form-label">Ventas Por Lotes</label>
