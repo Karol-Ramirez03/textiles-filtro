@@ -22,6 +22,7 @@ body::before {
   z-index: -1;
 }
 
+
 hi {
   color: #000000;
 }
@@ -30,14 +31,20 @@ h1 {
 }
 strong {
   color: #eef7ff;
+  /* border: 1px solid red; */
 }
 .logoImg {
   height: 20rem;
 }
 .logo {
-  height: 6rem;
+  display: flex;
+  /* flex-direction: row; */
+  height: 10rem;
   position: absolute;
-  margin-left: 75%;
+  inset: 0;
+  margin: auto;
+
+
 }
 .navr {
   display: flex;
@@ -68,9 +75,17 @@ strong {
   margin-left: 10%;
 }
 .out {
+  display: flex;
   background-image: linear-gradient(to left, #ffdb00, #feefad);
-  border-radius: 10px;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.logout{
+  margin-right: 2.5rem;
+  margin-bottom: 1rem;
+
+
 }
 .out:hover {
   transform: scale(1.2);
@@ -128,9 +143,13 @@ a {
 .navbar {
   width: 100%;
   height: 15%;
-  background-color: #c07f00;
+  background:  linear-gradient(to bottom,#c07f00, #f4c556, #c07f00);
   position: fixed;
   z-index: 5;
+}
+.container-fluid a{
+  margin-left: 2.5rem;
+  color: #000;
 }
 .info {
   margin-left: 5.3%;
@@ -162,6 +181,7 @@ a {
   justify-items: center;
 } */
 
+
 /* ---------------------------------------
 -----------------menu---------------------
 -----------------------------------------
@@ -184,9 +204,10 @@ nav.main-menu.expanded {
   overflow: visible;
 }
 
+
 .main-menu {
-  background-color: #fff2cc;
-  border-right: 1px solid #e5e5e5;
+  background-color: #b57c0a;
+  /* border-right: 1px solid #e5e5e5; */
   position: fixed;
   top: 15%;
   bottom: 0;

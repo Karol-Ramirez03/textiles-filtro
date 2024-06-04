@@ -4,7 +4,8 @@ import { CostosForm } from "../formsProd/costosIndi.js";
 import { DataDisplay } from "../reportes/datos.js";
 import { producto } from "../forms/addProduct.js";
 import { HomeComponent } from "./home-component.js.js";
-import { vender } from "../formsProd/sellProduct.js"; 
+import { vender } from "../formsProd/sellProduct.js";
+
 
 export class Interfaz extends LitElement {
   static properties = {
@@ -12,23 +13,25 @@ export class Interfaz extends LitElement {
     btnLlamar: {},
   };
 
+
   constructor() {
     super();
     this.condition = true;
   }
 
+
   render() {
     return html`
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bootstrap.min.css">
-      <nav class="navbar">
+      <nav class="navbar fixed-top">
         <div class="container-fluid">
           <div class="d-flex navr flex-column align-items-center justify-content-center">
-            <a id="nameLogo" class="navbar-brand text-white">Confecciones Pepita</a>
+            <a id="nameLogo" class="navbar-brand ">Confecciones Pepita</a>
             <img class="logo" src="public/img/logo.png" alt="">
           </div>
           <form class="d-flex search" role="search">
-            <button class="btn out" type="submit">Salir</button>
+            <button  class="btn  btn-dark logout" type="submit">Salir</button>
           </form>
         </div>
       </nav>
@@ -43,7 +46,7 @@ export class Interfaz extends LitElement {
                            Home
                         </span>
                     </a>
-                  
+                 
                 </li>
                 <li class="has-subnav">
                     <a class="llamar" href="#">
@@ -52,7 +55,7 @@ export class Interfaz extends LitElement {
                             Materia prima
                         </span>
                     </a>
-                    
+                   
                 </li>
                 <li class='costo' class="has-subnav">
                     <a href="#">
@@ -61,7 +64,7 @@ export class Interfaz extends LitElement {
                             Cost Calculate
                         </span>
                     </a>
-                    
+                   
                 </li>
                 <li class="informes">
                     <a href="#">
@@ -82,6 +85,7 @@ export class Interfaz extends LitElement {
                 </li>
             <ul class="logout">
 
+
                 <li>
                    <a class="salir" href="#">
                          <i class="fa fa-power-off fa-2x"><img class="img" src="img/out.png" alt=""></i>
@@ -95,7 +99,7 @@ export class Interfaz extends LitElement {
         <hr>
         </div>
         <div class="info">
-          
+         
         </div>
       </div>
     `;
@@ -144,3 +148,8 @@ export class Interfaz extends LitElement {
     });
   }
 }
+
+
+
+
+
