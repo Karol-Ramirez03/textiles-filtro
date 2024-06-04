@@ -89,6 +89,12 @@ export class materiaPrima extends LitElement{
         <button class="rosado guardar btn btn-primary" type="submit" style="width: 20%; height: 100%;"><strong class="buzo">
         HERE</strong></button>
         </div>
+        <div class="col-4">
+          <button  class="editar btn btn-warning" type="submit">Editar</button>
+        </div> 
+        <div class="col-4">
+          <button  class="editar btn btn-danger" type="submit">Editar</button>
+        </div> 
       </form>
       `;
     }
