@@ -173,7 +173,7 @@ export class producto extends LitElement{
         const form= this.shadowRoot.querySelector('.mat-form-');
         const inputs = form.querySelectorAll('input[type="text"], input[type="number"], textarea, select,nput[type="date"]');
         inputs.forEach(input => {
-            input.value = ''; // Restablecer el valor a vacío
+            input.value = ''; // Restablecer el valor a vacíoooo
         });
     }
 }
