@@ -23,6 +23,8 @@ body::before {
 }
 
 
+
+
 hi {
   color: #000000;
 }
@@ -43,6 +45,8 @@ strong {
   position: absolute;
   inset: 0;
   margin: auto;
+
+
 
 
 }
@@ -82,9 +86,13 @@ strong {
 }
 
 
+
+
 .logout{
   margin-right: 2.5rem;
   margin-bottom: 1rem;
+
+
 
 
 }
@@ -183,6 +191,8 @@ a {
 } */
 
 
+
+
 /* ---------------------------------------
 -----------------menu---------------------
 -----------------------------------------
@@ -204,6 +214,8 @@ nav.main-menu.expanded {
   width: 250px;
   overflow: visible;
 }
+
+
 
 
 .main-menu {
@@ -315,8 +327,9 @@ nav.main-menu li.active > a,
       height: auto;
     }
   }
-  
+ 
 }
+
 
 @media (max-width: 1580px) {
   .div-ph {
@@ -330,4 +343,17 @@ nav.main-menu li.active > a,
     padding-left: 35px;
   }
 
+
+}
+@media (max-width: 780px) {
+  .container-fluid a {
+    display: none;
+}
+}
+@media (max-width: 580px) {
+
+
+  .logout{
+   
+    display: none;}
 }

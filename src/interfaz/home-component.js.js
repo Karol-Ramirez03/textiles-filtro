@@ -1,5 +1,6 @@
 import { LitElement, html, css } from "lit";
 
+
 export class HomeComponent extends LitElement {
   static styles = css`
     :host {
@@ -73,7 +74,7 @@ export class HomeComponent extends LitElement {
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+       
         img{
           width: 90%;
         }
@@ -86,12 +87,20 @@ export class HomeComponent extends LitElement {
          
         }
     }
-    
+   
+    @media (max-width: 300px) {
+      h1, h2 {
+        font-size:4vw;
+      }
+    }
+   
   `;
+
 
   handleClick() {
     console.log("MUY BIEN!");
   }
+
 
   render() {
     return html`
@@ -120,8 +129,6 @@ export class HomeComponent extends LitElement {
           </div>
         </div>
       </div>
-    `;
-  }
+    `;
+  }
 }
-
-

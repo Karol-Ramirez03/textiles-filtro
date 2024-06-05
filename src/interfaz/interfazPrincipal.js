@@ -1,10 +1,12 @@
-import { LitElement, html } from "lit";
+import { LitElement, html, css } from "lit";
 import { materiaPrima } from "../forms/addMateriaPrima.js";
 import { CostosForm } from "../formsProd/costosIndi.js";
 import { DataDisplay } from "../reportes/datos.js";
 import { producto } from "../forms/addProduct.js";
 import { HomeComponent } from "./home-component.js.js";
 import { vender } from "../formsProd/sellProduct.js";
+
+
 
 
 export class Interfaz extends LitElement {
@@ -14,10 +16,19 @@ export class Interfaz extends LitElement {
   };
 
 
+  static styles = css`
+  @media (max-width: 580px) {
+  .logout{
+    display: none;
+  }
+  }
+`;
   constructor() {
     super();
     this.condition = true;
   }
+
+
 
 
   render() {
@@ -136,11 +147,6 @@ export class Interfaz extends LitElement {
       const homediv = document.createElement("home-component");
       divInfo.appendChild(homediv);
       customElements.define("home-component", HomeComponent);
-    });
-  }
+    });
+  }
 }
-
-
-
-
-
