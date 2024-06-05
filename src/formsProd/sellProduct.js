@@ -90,6 +90,7 @@ export class vender extends LitElement{
             const manodiv = document.createElement("mano-div");
             divInfo.appendChild(manodiv);
             customElements.define("mano-div", manoDeObra);
+            
     }
     clearFormFields() {
         const form= this.shadowRoot.querySelector('.form-data');

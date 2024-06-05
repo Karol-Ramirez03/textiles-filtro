@@ -158,7 +158,7 @@ export class producto extends LitElement{
             suma+=valor
         }
         this.producto.costoTotal=suma
-        
+        this.clearFormFields()
         cargarDatos('https://6659f969de346625136e9f20.mockapi.io/productos',this.producto)
     }
 
