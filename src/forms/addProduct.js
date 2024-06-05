@@ -134,7 +134,7 @@ export class producto extends LitElement{
             this.mat[this.cont]=producto
             this.mat[this.cont].costo=precio
             this.cont += 1;
-            this.clearFormFields()
+            this.clearFormFields1()
         }else{
             alert('Ingrese un id')
         }
@@ -163,7 +163,14 @@ export class producto extends LitElement{
     }
 
      clearFormFields() {
-        const form= this.shadowRoot.querySelector('.mat-form');
+        const form= this.shadowRoot.querySelector('.form-data');
+        const inputs = form.querySelectorAll('input[type="text"], input[type="number"], textarea, select,nput[type="date"]');
+        inputs.forEach(input => {
+            input.value = ''; // Restablecer el valor a vacío
+        });
+    }
+    clearFormFields1() {
+        const form= this.shadowRoot.querySelector('.mat-form-');
         const inputs = form.querySelectorAll('input[type="text"], input[type="number"], textarea, select,nput[type="date"]');
         inputs.forEach(input => {
             input.value = ''; // Restablecer el valor a vacío
