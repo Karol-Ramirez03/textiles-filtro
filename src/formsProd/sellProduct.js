@@ -15,7 +15,7 @@ export class vender extends LitElement{
         this.infoVenta={
             nroLote:'',
             productos:[],
-            valorLote:''
+            
         }
         this.producto=[]
         this._bindListeners()
@@ -111,22 +111,22 @@ export class vender extends LitElement{
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            const data = await response.json();
+            const dataV = await response.json();
     
             // Trabajar con los datos recibidos
             function buscarProductoPorId(id) {
-                return data.find(producto => Object.values(producto).includes(id));
+                return dataV.find(producto => Object.values(producto).includes(id));
             }
-            this.data = buscarProductoPorId(idProducto);
+            this.dataV = buscarProductoPorId(idProducto);
         } catch (error) {
             console.error('Fetch error:', error);
         }
-        if (this.data==undefined){
+        if (this.dataV==undefined){
             alert('Producto no se encuentra en registrado')
-        }else if(this.data.idProducto==idProducto){
+        }else if(this.dataV.idProducto==idProducto){
             
             let bandera = true;
-            const promises = this.data.materiales.map(async (element) => {
+            const promises = this.dataV.materiales.map(async (element) => {
             console.log(element);
             try {
                 const response = await fetch('https://6659f969de346625136e9f20.mockapi.io/MateriaPrima');
@@ -145,21 +145,15 @@ export class vender extends LitElement{
             } catch (error) {
                 console.error('Fetch error:', error);
             }
-            
-            console.log(this.data);
             const stock = this.data.cantidadEnStock;
-            console.log(stock);
             const can = element.Cantidad;
-            console.log(can);
             const producto = cantidad * can;
-            console.log(producto);
             const resta=stock - producto
             if (resta > 0) {
                 console.log('bien');
                 this.data.cantidadEnStock=this.data.cantidadEnStock-producto
                 this.ids.push(this.data.id)
                 this.datos.push(this.data)
-                console.log(this.ids)
             } else {
                 alert(`Stock insuficiente agrega mas ${this.data.nombre}`);
                 bandera = false;
@@ -170,9 +164,8 @@ export class vender extends LitElement{
             Promise.all(promises).then(() => {
                 console.log(bandera)
             if (bandera === true) {
-                console.log('normal');
-                const costo = this.data.costoTotal;
-                const nombre = this.data.nombre;
+                const costo = this.dataV.costoTotal;
+                const nombre = this.dataV.nombre;
                 this.producto[this.cont] = venta;
                 this.producto[this.cont].valor = costo;
                 this.producto[this.cont].producto = nombre;
